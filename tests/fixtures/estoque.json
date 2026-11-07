@@ -1,0 +1,21 @@
+{
+  "produtoCodigo": "1004813",
+  "entrada": {
+    "tipoEstoque": "1",
+    "origem": "3",
+    "fornecedor": "1640",
+    "fabricante": "100000",
+    "quantidade": "100"
+  },
+  "conferencia": {
+    "quantidade": "10000"
+  },
+  "nfe": {
+    "arquivoModelo": "docs/NF de exemplo.xml",
+    "origem": "71",
+    "localizacaoEstoque": "1",
+    "lancamentoDuplicata": "415",
+    "naturezaOperacao": "108",
+    "quantidadesEmGramas": ["3000", "250", "5000"]
+  }
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Consultas do sistema",
+    "automationId": "265",
+    "leaf": true
+  },
+  {
+    "name": "Produtos",
+    "automationId": "",
+    "submenu": [
+      {
+        "name": "Consulta de produtos/ imagens",
+        "automationId": "268",
+        "leaf": true
+      }
+    ]
+  },
+  {
+    "name": "Movimentações",
+    "automationId": "",
+    "submenu": [
+      {
+        "name": "Atendimento",
+        "automationId": "273",
+        "leaf": true
+      },
+      {
+        "name": "Entrega/ coleta",
+        "automationId": "274",
+        "leaf": true
+      },
+      {
+        "name": "Financeiro",
+        "automationId": "276",
+        "leaf": true
+      },
+      {
+        "name": "Descontos concedidos",
+        "automationId": "278",
+        "leaf": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,48 @@
+[
+  {
+    "name": "Atendimento",
+    "automationId": "461",
+    "leaf": true
+  },
+  {
+    "name": "e-Mails",
+    "automationId": "462",
+    "leaf": true
+  },
+  {
+    "name": "Balança",
+    "automationId": "",
+    "submenu": [
+      {
+        "name": "Posto",
+        "automationId": "464",
+        "leaf": true
+      },
+      {
+        "name": "Agentes",
+        "automationId": "466",
+        "leaf": true
+      },
+      {
+        "name": "Local",
+        "automationId": "468",
+        "leaf": true
+      }
+    ]
+  },
+  {
+    "name": "CEP",
+    "automationId": "469",
+    "leaf": true
+  },
+  {
+    "name": "Sistema",
+    "automationId": "471",
+    "leaf": true
+  },
+  {
+    "name": "Personalizar menu rápido",
+    "automationId": "473",
+    "leaf": true
+  }
+]

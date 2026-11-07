@@ -1,0 +1,651 @@
+{
+  "unidades": {
+    "cenario": "4.1",
+    "prescritor": "semAcrescimo",
+    "qsp": false,
+    "formulas": [
+      {
+        "laboratorio": 2,
+        "forma": 2,
+        "total": 30,
+        "itens": [
+          {
+            "produto": 1005757,
+            "quantidade": 500,
+            "unidade": "mg"
+          }
+        ]
+      },
+      {
+        "laboratorio": 2,
+        "forma": 2,
+        "total": 30,
+        "itens": [
+          {
+            "produto": 1005757,
+            "quantidade": 1,
+            "unidade": "g"
+          }
+        ]
+      },
+      {
+        "laboratorio": 2,
+        "forma": 2,
+        "total": 30,
+        "itens": [
+          {
+            "produto": 1005757,
+            "quantidade": 500000,
+            "unidade": "mcg"
+          }
+        ]
+      },
+      {
+        "laboratorio": 2,
+        "forma": 2,
+        "total": 30,
+        "itens": [
+          {
+            "produto": 1004105,
+            "quantidade": 10000,
+            "unidade": "ui"
+          }
+        ]
+      },
+      {
+        "laboratorio": 2,
+        "forma": 2,
+        "total": 30,
+        "itens": [
+          {
+            "produto": 1000110,
+            "quantidade": 1,
+            "unidade": "meq"
+          }
+        ]
+      },
+      {
+        "laboratorio": 2,
+        "forma": 2,
+        "total": 30,
+        "itens": [
+          {
+            "produto": 1001324,
+            "quantidade": 400,
+            "unidade": "mg"
+          },
+          {
+            "produto": 1005757,
+            "quantidade": 10,
+            "unidade": "%"
+          }
+        ]
+      }
+    ],
+    "precondicoes": [
+      {
+        "produto": 1005757,
+        "FATORCALCULO": 1,
+        "CONCENTRACAO": 100,
+        "UMIDADE_UC": 0,
+        "FATOREQUIV_UC": 0,
+        "formaLiberada": 2
+      },
+      {
+        "produto": 1004105,
+        "UNIDADE_UMU": 1,
+        "UI": ">0",
+        "formaLiberada": 2
+      },
+      {
+        "produto": 1000110,
+        "MEQ": ">0",
+        "UNIDADE_UMU": 0,
+        "formaLiberada": 2
+      },
+      {
+        "produto": 1001324,
+        "UMIDADE_UC": 0,
+        "formaLiberada": 2
+      }
+    ]
+  },
+  "fatores-ficha": {
+    "cenario": "4.2",
+    "prescritor": "semAcrescimo",
+    "qsp": false,
+    "formulas": [
+      {
+        "laboratorio": 2,
+        "forma": 2,
+        "total": 30,
+        "itens": [
+          {
+            "produto": 1005813,
+            "quantidade": 100,
+            "unidade": "mg"
+          }
+        ]
+      },
+      {
+        "laboratorio": 2,
+        "forma": 2,
+        "total": 30,
+        "itens": [
+          {
+            "produto": 1001910,
+            "quantidade": 100,
+            "unidade": "mg"
+          }
+        ]
+      },
+      {
+        "laboratorio": 2,
+        "forma": 2,
+        "total": 30,
+        "itens": [
+          {
+            "produto": 1001324,
+            "quantidade": 100,
+            "unidade": "mg"
+          }
+        ]
+      },
+      {
+        "laboratorio": 2,
+        "forma": 2,
+        "total": 30,
+        "itens": [
+          {
+            "produto": 1000198,
+            "quantidade": 100,
+            "unidade": "mg"
+          }
+        ]
+      },
+      {
+        "laboratorio": 2,
+        "forma": 2,
+        "total": 30,
+        "itens": [
+          {
+            "produto": 1005623,
+            "quantidade": 100,
+            "unidade": "mg"
+          }
+        ]
+      }
+    ],
+    "precondicoes": [
+      {
+        "produto": 1005813,
+        "FATORCALCULO": 1,
+        "CONCENTRACAO": 66.6666,
+        "UMIDADE_UC": 0,
+        "FATOREQUIV_UC": 0,
+        "formaLiberada": 2
+      },
+      {
+        "produto": 1001910,
+        "FATORCALCULO": 1,
+        "UMIDADE_UC": -1,
+        "UMIDADE": ">0",
+        "formaLiberada": 2
+      },
+      {
+        "produto": 1001324,
+        "FATORCALCULO": 1,
+        "UMIDADE_UC": 0,
+        "UMIDADE": ">0",
+        "formaLiberada": 2
+      },
+      {
+        "produto": 1000198,
+        "FATORCALCULO": 1,
+        "FATOREQUIV_UC": -1,
+        "FATOREQUIV": ">1",
+        "formaLiberada": 2
+      },
+      {
+        "produto": 1005623,
+        "FATORCALCULO": 1,
+        "FATOREQUIV_UC": 0,
+        "FATOREQUIV": 2,
+        "CONCENTRACAO": 50,
+        "formaLiberada": 2
+      }
+    ]
+  },
+  "lote-laudo": {
+    "cenario": "4.3",
+    "prescritor": "semAcrescimo",
+    "qsp": false,
+    "formulas": [
+      {
+        "laboratorio": 2,
+        "forma": 2,
+        "total": 30,
+        "itens": [
+          {
+            "produto": 1000427,
+            "quantidade": 100,
+            "unidade": "mg"
+          }
+        ]
+      },
+      {
+        "laboratorio": 2,
+        "forma": 2,
+        "total": 30,
+        "itens": [
+          {
+            "produto": 1004866,
+            "quantidade": 250,
+            "unidade": "mg"
+          }
+        ]
+      },
+      {
+        "laboratorio": 2,
+        "forma": 2,
+        "total": 30,
+        "itens": [
+          {
+            "produto": 1000503,
+            "quantidade": 100,
+            "unidade": "mg"
+          }
+        ]
+      },
+      {
+        "laboratorio": 2,
+        "forma": 2,
+        "total": 30,
+        "itens": [
+          {
+            "produto": 1002518,
+            "quantidade": 100,
+            "unidade": "mg"
+          }
+        ]
+      },
+      {
+        "laboratorio": 2,
+        "forma": 2,
+        "total": 30,
+        "itens": [
+          {
+            "produto": 1000105,
+            "quantidade": 25000,
+            "unidade": "ui"
+          }
+        ]
+      }
+    ],
+    "precondicoes": [
+      {
+        "produto": 1000427,
+        "FATORCALCULO": 2,
+        "formaLiberada": 2
+      },
+      {
+        "produto": 1004866,
+        "CODIGOPRINCIPAL": 1004813,
+        "formaLiberada": 2
+      },
+      {
+        "produto": 1004813,
+        "FATORCALCULO": 2,
+        "UMIDADE_UC": -1
+      },
+      {
+        "produto": 1000503,
+        "FATORCALCULO": 3,
+        "formaLiberada": 2
+      },
+      {
+        "produto": 1002518,
+        "FATORCALCULO": 4,
+        "formaLiberada": 2
+      },
+      {
+        "produto": 1000105,
+        "FATORCALCULO": 3,
+        "UNIDADE_UMU": 0,
+        "UI": ">0",
+        "formaLiberada": 2
+      }
+    ],
+    "fontesDoFator": {
+      "1000105": "LAUDO",
+      "1000427": "LOTE",
+      "1000503": "LAUDO",
+      "1002518": "LAUDO",
+      "1004866": "LOTE"
+    }
+  },
+  "lactobacilos-digitados": {
+    "cenario": "4.4",
+    "prescritor": "semAcrescimo",
+    "qsp": false,
+    "formulas": [
+      {
+        "laboratorio": 3,
+        "forma": 7,
+        "total": 30,
+        "itens": [
+          {
+            "produto": 1004749,
+            "quantidade": 500,
+            "unidade": "mlh"
+          },
+          {
+            "produto": 1002419,
+            "quantidade": 500,
+            "unidade": "blh"
+          },
+          {
+            "produto": 1002421,
+            "quantidade": 500,
+            "unidade": "ufc"
+          },
+          {
+            "produto": 1004031,
+            "quantidade": 500,
+            "unidade": "blh"
+          }
+        ]
+      },
+      {
+        "laboratorio": 3,
+        "forma": 7,
+        "total": 30,
+        "itens": [
+          {
+            "produto": 1002419,
+            "quantidade": 600,
+            "unidade": "blh"
+          },
+          {
+            "produto": 1002418,
+            "quantidade": 600,
+            "unidade": "mlh"
+          },
+          {
+            "produto": 1002420,
+            "quantidade": 600,
+            "unidade": "mlh"
+          }
+        ]
+      }
+    ],
+    "precondicoes": [
+      {
+        "produto": 1004749,
+        "UFC": ">0",
+        "formaLiberada": 7
+      },
+      {
+        "produto": 1002419,
+        "UFC": ">0",
+        "formaLiberada": 7
+      },
+      {
+        "produto": 1002421,
+        "UFC": ">0",
+        "formaLiberada": 7
+      },
+      {
+        "produto": 1004031,
+        "UFC": ">0",
+        "formaLiberada": 7
+      },
+      {
+        "produto": 1002418,
+        "UFC": ">0",
+        "formaLiberada": 7
+      },
+      {
+        "produto": 1002420,
+        "UFC": ">0",
+        "formaLiberada": 7
+      }
+    ]
+  },
+  "regras-da-forma": {
+    "cenario": "4.6",
+    "prescritor": "semAcrescimo",
+    "qsp": false,
+    "formulas": [
+      {
+        "laboratorio": 1,
+        "forma": 3,
+        "total": 30,
+        "itens": [
+          {
+            "produto": 1005757,
+            "quantidade": 100,
+            "unidade": "mg"
+          }
+        ]
+      },
+      {
+        "laboratorio": 1,
+        "forma": 5,
+        "total": 100,
+        "itens": [
+          {
+            "produto": 1005425,
+            "quantidade": 10,
+            "unidade": "ml"
+          },
+          {
+            "produto": 1001034,
+            "quantidade": 100,
+            "unidade": "qsp(ml)"
+          }
+        ]
+      },
+      {
+        "laboratorio": 1,
+        "forma": 1,
+        "total": 50,
+        "itens": [
+          {
+            "produto": 1005757,
+            "quantidade": 300,
+            "unidade": "mg"
+          },
+          {
+            "produto": 1000231,
+            "quantidade": 50,
+            "unidade": "qsp(g)"
+          }
+        ]
+      },
+      {
+        "laboratorio": 1,
+        "forma": 1,
+        "total": 30,
+        "itens": [
+          {
+            "produto": 1005757,
+            "quantidade": 2,
+            "unidade": "%"
+          },
+          {
+            "produto": 1000231,
+            "quantidade": 30,
+            "unidade": "qsp(g)"
+          }
+        ]
+      },
+      {
+        "laboratorio": 1,
+        "forma": 1,
+        "total": 200,
+        "itens": [
+          {
+            "produto": 1005757,
+            "quantidade": 100,
+            "unidade": "g"
+          },
+          {
+            "produto": 1000231,
+            "quantidade": 200,
+            "unidade": "qsp(g)"
+          }
+        ]
+      }
+    ],
+    "precondicoes": [
+      {
+        "produto": 1005757,
+        "FATORCALCULO": 1,
+        "CONCENTRACAO": 100,
+        "formaLiberada": 3
+      },
+      {
+        "produto": 1005425,
+        "DENSIDADE": ">1",
+        "formaLiberada": 5
+      },
+      {
+        "produto": 1001034,
+        "formaLiberada": 5
+      },
+      {
+        "produto": 1000231,
+        "formaLiberada": 1
+      }
+    ],
+    "precondicoesDaForma": [
+      {
+        "forma": 1,
+        "estoque": 4,
+        "temIndice": true,
+        "minimoPorQvd": {
+          "qvd": 30,
+          "valor": 50
+        }
+      },
+      {
+        "forma": 3,
+        "estoque": 4,
+        "minimoAtendimento": 55
+      },
+      {
+        "forma": 5,
+        "estoque": 5,
+        "minimoAtendimento": 55
+      }
+    ]
+  },
+  "multiplo-prescritor": {
+    "cenario": "4.7",
+    "prescritor": "comAcrescimo",
+    "qsp": false,
+    "formulas": [
+      {
+        "laboratorio": 2,
+        "forma": 2,
+        "total": 30,
+        "multiplo": 2,
+        "itens": [
+          {
+            "produto": 1005757,
+            "quantidade": 500,
+            "unidade": "mg"
+          }
+        ]
+      },
+      {
+        "laboratorio": 2,
+        "forma": 2,
+        "total": 30,
+        "multiplo": 3,
+        "itens": [
+          {
+            "produto": 1005757,
+            "quantidade": 1500,
+            "unidade": "mg"
+          }
+        ]
+      },
+      {
+        "laboratorio": 2,
+        "forma": 2,
+        "total": 30,
+        "multiplo": 1,
+        "itens": [
+          {
+            "produto": 1005757,
+            "quantidade": 300,
+            "unidade": "mg"
+          },
+          {
+            "produto": 1001324,
+            "quantidade": 200,
+            "unidade": "mg"
+          }
+        ]
+      }
+    ],
+    "precondicoes": [
+      {
+        "produto": 1005757,
+        "FATORCALCULO": 1,
+        "CONCENTRACAO": 100,
+        "formaLiberada": 2
+      },
+      {
+        "produto": 1001324,
+        "UMIDADE_UC": 0,
+        "formaLiberada": 2
+      }
+    ]
+  },
+  "lactobacilos-formula-interna": {
+    "cenario": "4.5",
+    "prescritor": "semAcrescimo",
+    "qsp": false,
+    "formulas": [
+      {
+        "laboratorio": 3,
+        "forma": 7,
+        "total": 30,
+        "itens": [
+          {
+            "produto": 1005946,
+            "quantidade": 1,
+            "unidade": "u"
+          }
+        ]
+      },
+      {
+        "laboratorio": 3,
+        "forma": 7,
+        "total": 30,
+        "itens": [
+          {
+            "produto": 1005952,
+            "quantidade": 1,
+            "unidade": "u"
+          }
+        ]
+      }
+    ],
+    "precondicoes": [
+      {
+        "produto": 1005946,
+        "itensMlhNaFormulaInterna": 1,
+        "formaLiberada": 7
+      },
+      {
+        "produto": 1005952,
+        "itensMlhNaFormulaInterna": 2,
+        "formaLiberada": 7
+      }
+    ]
+  }
+}

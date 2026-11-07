@@ -1,0 +1,62 @@
+# Self-hosted de propósito (não windows-latest hospedado): PS01.exe exige
+# sessão de desktop interativa real (sem headless, ver AGENTS.md §4) E
+# conectividade de rede com o Firebird 2.5 — um runner hospedado da GitHub
+# não alcança esse banco. A VM que registra este runner já tem o driver
+# `windows`/WinAppDriver instalados e validados (.agents/HISTORICO.md §2) —
+# isso é setup ÚNICO da VM, não é repetido a cada execução aqui.
+#
+# `concurrency` com cancel-in-progress:false é obrigatório, não cosmético:
+# o runner roda numa única sessão de desktop física — uma 2ª execução
+# concorrente roubaria mouse/teclado da 1ª no meio do teste (paralelismo
+# real não se resolve com maxInstances, só com várias VMs; ver
+# .agents/HISTORICO.md, fechamento do P0-01). Enfileira em vez de derrubar a execução em andamento.
+name: tests
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: desktop-appium-delphi-suite-e2e
+  cancel-in-progress: false
+
+jobs:
+  e2e:
+    runs-on: [self-hosted, Windows, sisps-vm]
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - run: npm ci
+
+      # env.local.json NÃO vem do checkout (gitignorado) — precisa já existir
+      # na pasta de trabalho do runner (`_work/desktop-appium-delphi-suite/...`,
+      # separada do clone manual usado pra explorar o app), copiado uma única
+      # vez na configuração da VM. Falha explícita aqui é melhor que o
+      # `wdio` falhar depois com erro de credencial vazia e categoria confusa.
+      - name: Conferir credenciais da VM (env.local.json)
+        shell: pwsh
+        run: |
+          if (-not (Test-Path env.local.json)) {
+            Write-Error "env.local.json ausente na pasta de trabalho do runner — copiar manualmente (não vem do git, é gitignorado). Ver README#Configuração."
+            exit 1
+          }
+
+      - run: npx wdio run wdio.conf.js
+        env:
+          SESSION_LABEL: ci-${{ github.run_id }}
+
+      - name: Gerar HTML consolidado (multiple-cucumber-html-reporter)
+        if: always()
+        run: npm run report:html
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-reports-${{ github.run_id }}
+          path: tests/reports/
+          retention-days: 30

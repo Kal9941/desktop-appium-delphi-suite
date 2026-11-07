@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Relatórios do sistema",
+    "automationId": "448",
+    "leaf": true
+  },
+  {
+    "name": "Rótulos",
+    "automationId": "450",
+    "leaf": true
+  },
+  {
+    "name": "Etiquetas",
+    "automationId": "451",
+    "leaf": true
+  },
+  {
+    "name": "Abrir arquivo RPF",
+    "automationId": "456",
+    "leaf": true
+  }
+]

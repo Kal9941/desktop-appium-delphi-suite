@@ -1,0 +1,1596 @@
+{
+  "Ajuda": [],
+  "Cadastros": [
+    {
+      "name": "Animais",
+      "automationId": "",
+      "submenu": [
+        {
+          "name": "Ficha do animal",
+          "automationId": "3",
+          "leaf": true
+        },
+        {
+          "name": "Cor",
+          "automationId": "5",
+          "leaf": true
+        },
+        {
+          "name": "Espécies",
+          "automationId": "6",
+          "leaf": true
+        },
+        {
+          "name": "Pelagem",
+          "automationId": "7",
+          "leaf": true
+        },
+        {
+          "name": "Porte",
+          "automationId": "8",
+          "leaf": true
+        },
+        {
+          "name": "Raça",
+          "automationId": "9",
+          "leaf": true
+        }
+      ]
+    },
+    {
+      "name": "Atendimentos",
+      "automationId": "",
+      "submenu": [
+        {
+          "name": "Horários",
+          "automationId": "13",
+          "leaf": true
+        },
+        {
+          "name": "Operações",
+          "automationId": "14",
+          "leaf": true
+        },
+        {
+          "name": "Origens",
+          "automationId": "15",
+          "leaf": true
+        },
+        {
+          "name": "Processos de produção/ rastreabilidade",
+          "automationId": "16",
+          "leaf": true
+        },
+        {
+          "name": "Setores de venda",
+          "automationId": "17",
+          "leaf": true
+        },
+        {
+          "name": "Forma farmacêutica",
+          "automationId": "",
+          "submenu": [
+            {
+              "name": "Ficha da forma farmacêutica",
+              "automationId": "20",
+              "leaf": true
+            },
+            {
+              "name": "Laboratórios",
+              "automationId": "22",
+              "leaf": true
+            },
+            {
+              "name": "Tipos de uso",
+              "automationId": "23",
+              "leaf": true
+            },
+            {
+              "name": "Tipos de forma farmacêutica",
+              "automationId": "24",
+              "leaf": true
+            },
+            {
+              "name": "Índices de valores",
+              "automationId": "26",
+              "leaf": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Bairros",
+      "automationId": "28",
+      "leaf": true
+    },
+    {
+      "name": "Cidades",
+      "automationId": "29",
+      "leaf": true
+    },
+    {
+      "name": "Entregas em domicílio",
+      "automationId": "",
+      "submenu": [
+        {
+          "name": "Ocorrências",
+          "automationId": "31",
+          "leaf": true
+        },
+        {
+          "name": "Períodos de entrega",
+          "automationId": "32",
+          "leaf": true
+        },
+        {
+          "name": "Regiões de entrega",
+          "automationId": "33",
+          "leaf": true
+        }
+      ]
+    },
+    {
+      "name": "Clientes",
+      "automationId": "",
+      "submenu": [
+        {
+          "name": "Ficha do cliente",
+          "automationId": "36",
+          "leaf": true
+        },
+        {
+          "name": "Convênios",
+          "automationId": "44",
+          "leaf": true
+        },
+        {
+          "name": "Pós venda (Programação)",
+          "automationId": "46",
+          "leaf": true
+        },
+        {
+          "name": "Classificação movimentação",
+          "automationId": "49",
+          "leaf": true
+        },
+        {
+          "name": "Classificação pós venda",
+          "automationId": "50",
+          "leaf": true
+        },
+        {
+          "name": "Índices de desconto",
+          "automationId": "51",
+          "leaf": true
+        },
+        {
+          "name": "Profissões",
+          "automationId": "52",
+          "leaf": true
+        }
+      ]
+    },
+    {
+      "name": "Fornecedores",
+      "automationId": "",
+      "submenu": [
+        {
+          "name": "Ficha do fornecedor",
+          "automationId": "54",
+          "leaf": true
+        },
+        {
+          "name": "Índices de avaliação",
+          "automationId": "56",
+          "leaf": true
+        }
+      ]
+    },
+    {
+      "name": "Funcionários",
+      "automationId": "",
+      "submenu": [
+        {
+          "name": "Ficha do funcionário",
+          "automationId": "58",
+          "leaf": true
+        },
+        {
+          "name": "Áreas",
+          "automationId": "60",
+          "leaf": true
+        },
+        {
+          "name": "Departamentos",
+          "automationId": "61",
+          "leaf": true
+        },
+        {
+          "name": "Funções",
+          "automationId": "62",
+          "leaf": true
+        },
+        {
+          "name": "Comissões",
+          "automationId": "",
+          "submenu": [
+            {
+              "name": "Vendas",
+              "automationId": "65",
+              "leaf": true
+            },
+            {
+              "name": "Vendas por classe de produto",
+              "automationId": "67",
+              "leaf": true
+            },
+            {
+              "name": "Vendas por grupo de produto",
+              "automationId": "68",
+              "leaf": true
+            },
+            {
+              "name": "Vendas por linha de produto",
+              "automationId": "69",
+              "leaf": true
+            },
+            {
+              "name": "Produção laboratório",
+              "automationId": "71",
+              "leaf": true
+            },
+            {
+              "name": "Visita médica",
+              "automationId": "73",
+              "leaf": true
+            }
+          ]
+        },
+        {
+          "name": "Metas",
+          "automationId": "",
+          "submenu": [
+            {
+              "name": "Metas - Vendas",
+              "automationId": "75",
+              "leaf": true
+            },
+            {
+              "name": "Metas - Produção",
+              "automationId": "76",
+              "leaf": true
+            }
+          ]
+        },
+        {
+          "name": "Férias",
+          "automationId": "78",
+          "leaf": true
+        },
+        {
+          "name": "Folha de pagamento",
+          "automationId": "",
+          "submenu": [
+            {
+              "name": "Índices de tabelas",
+              "automationId": "80",
+              "leaf": true
+            },
+            {
+              "name": "Lançamentos",
+              "automationId": "81",
+              "leaf": true
+            },
+            {
+              "name": "Parâmetros p/ cálculo",
+              "automationId": "82",
+              "leaf": true
+            }
+          ]
+        },
+        {
+          "name": "Folha de ponto",
+          "automationId": "",
+          "submenu": [
+            {
+              "name": "Horários",
+              "automationId": "84",
+              "leaf": true
+            },
+            {
+              "name": "Justificativas",
+              "automationId": "85",
+              "leaf": true
+            }
+          ]
+        },
+        {
+          "name": "Atas de reunião",
+          "automationId": "87",
+          "leaf": true
+        },
+        {
+          "name": "Processos",
+          "automationId": "",
+          "submenu": [
+            {
+              "name": "Ficha do processo",
+              "automationId": "89",
+              "leaf": true
+            },
+            {
+              "name": "Ítens do processo",
+              "automationId": "91",
+              "leaf": true
+            }
+          ]
+        },
+        {
+          "name": "Treinamentos",
+          "automationId": "",
+          "submenu": [
+            {
+              "name": "Ficha do treinamento",
+              "automationId": "93",
+              "leaf": true
+            },
+            {
+              "name": "Classificação",
+              "automationId": "95",
+              "leaf": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Franquias",
+      "automationId": "",
+      "submenu": [
+        {
+          "name": "Conexões",
+          "automationId": "97",
+          "leaf": true
+        },
+        {
+          "name": "Empresas",
+          "automationId": "98",
+          "leaf": true
+        },
+        {
+          "name": "Enviar dados",
+          "automationId": "100",
+          "leaf": true
+        }
+      ]
+    },
+    {
+      "name": "Lojas",
+      "automationId": "101",
+      "leaf": true
+    },
+    {
+      "name": "Prescritores",
+      "automationId": "",
+      "submenu": [
+        {
+          "name": "Ficha do prescritor",
+          "automationId": "103",
+          "leaf": true
+        },
+        {
+          "name": "Conselhos regionais",
+          "automationId": "105",
+          "leaf": true
+        },
+        {
+          "name": "Especialidades",
+          "automationId": "106",
+          "leaf": true
+        },
+        {
+          "name": "Locais de atendimento",
+          "automationId": "108",
+          "leaf": true
+        },
+        {
+          "name": "Secretárias",
+          "automationId": "109",
+          "leaf": true
+        },
+        {
+          "name": "Locais de atendimento do prescritor",
+          "automationId": "111",
+          "leaf": true
+        },
+        {
+          "name": "Representantes do prescritor",
+          "automationId": "112",
+          "leaf": true
+        }
+      ]
+    },
+    {
+      "name": "Perfil",
+      "automationId": "",
+      "submenu": [
+        {
+          "name": "Itens do perfil",
+          "automationId": "117",
+          "leaf": true
+        },
+        {
+          "name": "Relacionamento",
+          "automationId": "118",
+          "leaf": true
+        }
+      ]
+    },
+    {
+      "name": "Questionários",
+      "automationId": "",
+      "submenu": [
+        {
+          "name": "Ficha do questionário",
+          "automationId": "120",
+          "leaf": true
+        }
+      ]
+    },
+    {
+      "name": "Feriados",
+      "automationId": "122",
+      "leaf": true
+    },
+    {
+      "name": "Financeiro",
+      "automationId": "",
+      "submenu": [
+        {
+          "name": "Contas pag/ rec",
+          "automationId": "",
+          "submenu": [
+            {
+              "name": "Lançamentos",
+              "automationId": "126",
+              "leaf": true
+            },
+            {
+              "name": "Lançamentos programados",
+              "automationId": "127",
+              "leaf": true
+            },
+            {
+              "name": "Rateio entre lojas",
+              "automationId": "129",
+              "leaf": true
+            },
+            {
+              "name": "Centro de custo/ receita",
+              "automationId": "131",
+              "leaf": true
+            },
+            {
+              "name": "Situações",
+              "automationId": "132",
+              "leaf": true
+            },
+            {
+              "name": "Fluxo de caixa",
+              "automationId": "136",
+              "leaf": true
+            },
+            {
+              "name": "Fluxo de caixa - Relacionamento",
+              "automationId": "137",
+              "leaf": true
+            }
+          ]
+        },
+        {
+          "name": "Bancários",
+          "automationId": "",
+          "submenu": [
+            {
+              "name": "Bancos",
+              "automationId": "140",
+              "leaf": true
+            },
+            {
+              "name": "Contas",
+              "automationId": "141",
+              "leaf": true
+            },
+            {
+              "name": "Lançamentos",
+              "automationId": "142",
+              "leaf": true
+            },
+            {
+              "name": "Cobrança - Boletos",
+              "automationId": "144",
+              "leaf": true
+            }
+          ]
+        },
+        {
+          "name": "Fidelidade",
+          "automationId": "146",
+          "leaf": true
+        },
+        {
+          "name": "PIX",
+          "automationId": "147",
+          "leaf": true
+        }
+      ]
+    },
+    {
+      "name": "Grupos",
+      "automationId": "149",
+      "leaf": true
+    },
+    {
+      "name": "Informações fiscais",
+      "automationId": "",
+      "submenu": [
+        {
+          "name": "Alíquotas fiscais",
+          "automationId": "152",
+          "leaf": true
+        },
+        {
+          "name": "Impressoras fiscais",
+          "automationId": "153",
+          "leaf": true
+        },
+        {
+          "name": "Alíquotas /Impressoras fiscais",
+          "automationId": "154",
+          "leaf": true
+        },
+        {
+          "name": "Notas fiscais",
+          "automationId": "",
+          "submenu": [
+            {
+              "name": "Agente - NFS-e",
+              "automationId": "157",
+              "leaf": true
+            },
+            {
+              "name": "Configurações - NF-e/ NFC-e",
+              "automationId": "159",
+              "leaf": true
+            },
+            {
+              "name": "Configurações - NFS-e",
+              "automationId": "160",
+              "leaf": true
+            },
+            {
+              "name": "Configurações - SAT/ MFE",
+              "automationId": "161",
+              "leaf": true
+            },
+            {
+              "name": "Numeração",
+              "automationId": "163",
+              "leaf": true
+            },
+            {
+              "name": "Máquina de cartão (POS/ TEF)",
+              "automationId": "165",
+              "leaf": true
+            },
+            {
+              "name": "Tabela de serviços",
+              "automationId": "167",
+              "leaf": true
+            }
+          ]
+        },
+        {
+          "name": "Impostos",
+          "automationId": "",
+          "submenu": [
+            {
+              "name": "CST",
+              "automationId": "169",
+              "leaf": true
+            },
+            {
+              "name": "CFOP",
+              "automationId": "170",
+              "leaf": true
+            },
+            {
+              "name": "IBPT",
+              "automationId": "171",
+              "leaf": true
+            },
+            {
+              "name": "Natureza de operação",
+              "automationId": "172",
+              "leaf": true
+            },
+            {
+              "name": "Tabelas de impostos",
+              "automationId": "174",
+              "leaf": true
+            },
+            {
+              "name": "Configuração de tabelas de impostos",
+              "automationId": "175",
+              "leaf": true
+            },
+            {
+              "name": "Configuração do pis e cofins p/ notas de entrada",
+              "automationId": "177",
+              "leaf": true
+            }
+          ]
+        },
+        {
+          "name": "Atualização de inf. fiscais",
+          "automationId": "179",
+          "leaf": true
+        }
+      ]
+    },
+    {
+      "name": "Produtos",
+      "automationId": "",
+      "submenu": [
+        {
+          "name": "Insumo (Alopatia)",
+          "automationId": "",
+          "submenu": [
+            {
+              "name": "Ficha do produto",
+              "automationId": "183",
+              "leaf": true
+            },
+            {
+              "name": "Diluentes/ conservantes",
+              "automationId": "185",
+              "leaf": true
+            },
+            {
+              "name": "Excipientes",
+              "automationId": "186",
+              "leaf": true
+            },
+            {
+              "name": "Incompatibilidades",
+              "automationId": "187",
+              "leaf": true
+            },
+            {
+              "name": "Substituição de bases",
+              "automationId": "188",
+              "leaf": true
+            },
+            {
+              "name": "Vínculo forma farmacêutica / Base",
+              "automationId": "190",
+              "leaf": true
+            }
+          ]
+        },
+        {
+          "name": "Insumo (Homeopatia)",
+          "automationId": "",
+          "submenu": [
+            {
+              "name": "Ficha do produto",
+              "automationId": "192",
+              "leaf": true
+            },
+            {
+              "name": "Formação de preços",
+              "automationId": "194",
+              "leaf": true
+            },
+            {
+              "name": "Graduação alcoolica",
+              "automationId": "195",
+              "leaf": true
+            },
+            {
+              "name": "Dinamização em estoque",
+              "automationId": "197",
+              "leaf": true
+            }
+          ]
+        },
+        {
+          "name": "Embalagem (Frasco, cápsula e outros)",
+          "automationId": "",
+          "submenu": [
+            {
+              "name": "Ficha do produto",
+              "automationId": "199",
+              "leaf": true
+            },
+            {
+              "name": "Tipos de embalagem",
+              "automationId": "201",
+              "leaf": true
+            },
+            {
+              "name": "Vínculo forma farmacêutica/ embalagem",
+              "automationId": "202",
+              "leaf": true
+            },
+            {
+              "name": "Vínculo matéria prima/ tipo de embalagem",
+              "automationId": "203",
+              "leaf": true
+            },
+            {
+              "name": "Volumes",
+              "automationId": "204",
+              "leaf": true
+            }
+          ]
+        },
+        {
+          "name": "Revenda",
+          "automationId": "",
+          "submenu": [
+            {
+              "name": "Ficha do produto",
+              "automationId": "206",
+              "leaf": true
+            },
+            {
+              "name": "Atualizar desconto máximo",
+              "automationId": "208",
+              "leaf": true
+            },
+            {
+              "name": "Importação de tabelas",
+              "automationId": "209",
+              "leaf": true
+            },
+            {
+              "name": "Promoções",
+              "automationId": "210",
+              "leaf": true
+            },
+            {
+              "name": "Tabela de preços",
+              "automationId": "211",
+              "leaf": true
+            },
+            {
+              "name": "Ficha do programa benefício",
+              "automationId": "213",
+              "leaf": true
+            }
+          ]
+        },
+        {
+          "name": "Bens, componentes e outros",
+          "automationId": "",
+          "submenu": [
+            {
+              "name": "Ficha do produto",
+              "automationId": "215",
+              "leaf": true
+            },
+            {
+              "name": "Equipamentos",
+              "automationId": "",
+              "submenu": [
+                {
+                  "name": "Ficha do equipamento",
+                  "automationId": "218",
+                  "leaf": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Detalhes ficha do produto",
+          "automationId": "",
+          "submenu": [
+            {
+              "name": "Categorias",
+              "automationId": "221",
+              "leaf": true
+            },
+            {
+              "name": "Classes",
+              "automationId": "222",
+              "leaf": true
+            },
+            {
+              "name": "Classificações",
+              "automationId": "223",
+              "leaf": true
+            },
+            {
+              "name": "Códigos NCM",
+              "automationId": "224",
+              "leaf": true
+            },
+            {
+              "name": "Fabricantes",
+              "automationId": "226",
+              "leaf": true
+            },
+            {
+              "name": "Linhas",
+              "automationId": "227",
+              "leaf": true
+            },
+            {
+              "name": "Listas de controle especial",
+              "automationId": "228",
+              "leaf": true
+            },
+            {
+              "name": "Localizações de estoques",
+              "automationId": "229",
+              "leaf": true
+            },
+            {
+              "name": "Marcas",
+              "automationId": "230",
+              "leaf": true
+            },
+            {
+              "name": "Origens",
+              "automationId": "231",
+              "leaf": true
+            },
+            {
+              "name": "Portarias",
+              "automationId": "232",
+              "leaf": true
+            },
+            {
+              "name": "Tipos de estoque",
+              "automationId": "234",
+              "leaf": true
+            }
+          ]
+        },
+        {
+          "name": "Desconto por tipo de produto",
+          "automationId": "235",
+          "leaf": true
+        },
+        {
+          "name": "Formação de preços",
+          "automationId": "",
+          "submenu": [
+            {
+              "name": "Cadastro de índices",
+              "automationId": "237",
+              "leaf": true
+            },
+            {
+              "name": "Cálculo do markup/ Margem de lucro",
+              "automationId": "238",
+              "leaf": true
+            },
+            {
+              "name": "Atualização de produtos",
+              "automationId": "240",
+              "leaf": true
+            }
+          ]
+        },
+        {
+          "name": "Incluir/ alterar estoque",
+          "automationId": "242",
+          "leaf": true
+        },
+        {
+          "name": "Configuração de estoque mín. e máx.",
+          "automationId": "243",
+          "leaf": true
+        },
+        {
+          "name": "Estoque detalhado",
+          "automationId": "245",
+          "leaf": true
+        },
+        {
+          "name": "Histórico de compra",
+          "automationId": "246",
+          "leaf": true
+        },
+        {
+          "name": "Histórico de estoque",
+          "automationId": "247",
+          "leaf": true
+        },
+        {
+          "name": "Histórico de preços",
+          "automationId": "248",
+          "leaf": true
+        },
+        {
+          "name": "Produção interna",
+          "automationId": "254",
+          "leaf": true
+        },
+        {
+          "name": "Laudo interno",
+          "automationId": "",
+          "submenu": [
+            {
+              "name": "Testes",
+              "automationId": "257",
+              "leaf": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Termos LGPD",
+      "automationId": "261",
+      "leaf": true
+    }
+  ],
+  "Configurações": [
+    {
+      "name": "Atendimento",
+      "automationId": "461",
+      "leaf": true
+    },
+    {
+      "name": "e-Mails",
+      "automationId": "462",
+      "leaf": true
+    },
+    {
+      "name": "Balança",
+      "automationId": "",
+      "submenu": [
+        {
+          "name": "Posto",
+          "automationId": "464",
+          "leaf": true
+        },
+        {
+          "name": "Agentes",
+          "automationId": "466",
+          "leaf": true
+        },
+        {
+          "name": "Local",
+          "automationId": "468",
+          "leaf": true
+        }
+      ]
+    },
+    {
+      "name": "CEP",
+      "automationId": "469",
+      "leaf": true
+    },
+    {
+      "name": "Sistema",
+      "automationId": "471",
+      "leaf": true
+    },
+    {
+      "name": "Personalizar menu rápido",
+      "automationId": "473",
+      "leaf": true
+    }
+  ],
+  "Consultas": [
+    {
+      "name": "Consultas do sistema",
+      "automationId": "265",
+      "leaf": true
+    },
+    {
+      "name": "Produtos",
+      "automationId": "",
+      "submenu": [
+        {
+          "name": "Consulta de produtos/ imagens",
+          "automationId": "268",
+          "leaf": true
+        }
+      ]
+    },
+    {
+      "name": "Movimentações",
+      "automationId": "",
+      "submenu": [
+        {
+          "name": "Atendimento",
+          "automationId": "273",
+          "leaf": true
+        },
+        {
+          "name": "Entrega/ coleta",
+          "automationId": "274",
+          "leaf": true
+        },
+        {
+          "name": "Financeiro",
+          "automationId": "276",
+          "leaf": true
+        },
+        {
+          "name": "Descontos concedidos",
+          "automationId": "278",
+          "leaf": true
+        }
+      ]
+    }
+  ],
+  "Movimentos": [
+    {
+      "name": "Atendimento",
+      "automationId": "",
+      "submenu": [
+        {
+          "name": "Receita",
+          "automationId": "288",
+          "leaf": true
+        },
+        {
+          "name": "Revenda",
+          "automationId": "289",
+          "leaf": true
+        },
+        {
+          "name": "Refazer",
+          "automationId": "291",
+          "leaf": true
+        },
+        {
+          "name": "Delivery",
+          "automationId": "",
+          "submenu": [
+            {
+              "name": "Entregas e coletas",
+              "automationId": "294",
+              "leaf": true
+            },
+            {
+              "name": "Lote de entregas e coletas",
+              "automationId": "295",
+              "leaf": true
+            },
+            {
+              "name": "Lista de entregas e coletas",
+              "automationId": "297",
+              "leaf": true
+            },
+            {
+              "name": "Painel de entregas e coletas",
+              "automationId": "299",
+              "leaf": true
+            }
+          ]
+        },
+        {
+          "name": "Pós venda",
+          "automationId": "",
+          "submenu": [
+            {
+              "name": "Lista de clientes",
+              "automationId": "302",
+              "leaf": true
+            },
+            {
+              "name": "Registrar pós venda",
+              "automationId": "303",
+              "leaf": true
+            },
+            {
+              "name": "Correção da data de retorno",
+              "automationId": "305",
+              "leaf": true
+            }
+          ]
+        },
+        {
+          "name": "PBM's",
+          "automationId": "",
+          "submenu": [
+            {
+              "name": "Autorizar",
+              "automationId": "310",
+              "leaf": true
+            },
+            {
+              "name": "Consultar",
+              "automationId": "312",
+              "leaf": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Caixa",
+      "automationId": "",
+      "submenu": [
+        {
+          "name": "PDV Frente de caixa",
+          "automationId": "314",
+          "leaf": true
+        },
+        {
+          "name": "Conferência de caixa",
+          "automationId": "316",
+          "leaf": true
+        },
+        {
+          "name": "Movimentações de caixas",
+          "automationId": "317",
+          "leaf": true
+        }
+      ]
+    },
+    {
+      "name": "Comunicação interna/ S.A.C.",
+      "automationId": "319",
+      "leaf": true
+    },
+    {
+      "name": "Questionários",
+      "automationId": "320",
+      "leaf": true
+    },
+    {
+      "name": "Manutenção de equipamentos",
+      "automationId": "322",
+      "leaf": true
+    },
+    {
+      "name": "Fornecedores",
+      "automationId": "",
+      "submenu": [
+        {
+          "name": "Avaliar fornecedor",
+          "automationId": "325",
+          "leaf": true
+        },
+        {
+          "name": "Credenciar fornecedor",
+          "automationId": "326",
+          "leaf": true
+        }
+      ]
+    },
+    {
+      "name": "Funcionários",
+      "automationId": "",
+      "submenu": [
+        {
+          "name": "Comissões",
+          "automationId": "328",
+          "leaf": true
+        },
+        {
+          "name": "Metas",
+          "automationId": "",
+          "submenu": [
+            {
+              "name": "Loja",
+              "automationId": "331",
+              "leaf": true
+            },
+            {
+              "name": "Funcionário",
+              "automationId": "332",
+              "leaf": true
+            },
+            {
+              "name": "Setor de Venda",
+              "automationId": "333",
+              "leaf": true
+            },
+            {
+              "name": "Produção",
+              "automationId": "335",
+              "leaf": true
+            }
+          ]
+        },
+        {
+          "name": "Folha de pagamento",
+          "automationId": "337",
+          "leaf": true
+        },
+        {
+          "name": "Folha de ponto",
+          "automationId": "",
+          "submenu": [
+            {
+              "name": "Lista de registro de ponto",
+              "automationId": "339",
+              "leaf": true
+            },
+            {
+              "name": "Ficha do registro de ponto",
+              "automationId": "340",
+              "leaf": true
+            }
+          ]
+        },
+        {
+          "name": "Processos",
+          "automationId": "342",
+          "leaf": true
+        },
+        {
+          "name": "Plano de ação",
+          "automationId": "343",
+          "leaf": true
+        }
+      ]
+    },
+    {
+      "name": "Prescritores",
+      "automationId": "",
+      "submenu": [
+        {
+          "name": "Controle de visitas",
+          "automationId": "345",
+          "leaf": true
+        },
+        {
+          "name": "Lista de visitas médicas",
+          "automationId": "347",
+          "leaf": true
+        },
+        {
+          "name": "Análise de visitas médicas (3 meses)",
+          "automationId": "349",
+          "leaf": true
+        },
+        {
+          "name": "Análise de visitas médicas (13 meses)",
+          "automationId": "350",
+          "leaf": true
+        }
+      ]
+    },
+    {
+      "name": "Financeiro",
+      "automationId": "",
+      "submenu": [
+        {
+          "name": "Consulta de lançamentos",
+          "automationId": "353",
+          "leaf": true
+        },
+        {
+          "name": "Contas pag/ rec",
+          "automationId": "354",
+          "leaf": true
+        },
+        {
+          "name": "Parcelamento de contas",
+          "automationId": "355",
+          "leaf": true
+        },
+        {
+          "name": "Fatura de convênios",
+          "automationId": "357",
+          "leaf": true
+        },
+        {
+          "name": "Contas",
+          "automationId": "",
+          "submenu": [
+            {
+              "name": "Movimentação",
+              "automationId": "360",
+              "leaf": true
+            },
+            {
+              "name": "Transferência",
+              "automationId": "361",
+              "leaf": true
+            }
+          ]
+        },
+        {
+          "name": "Conciliação (Cielo e Rede)",
+          "automationId": "363",
+          "leaf": true
+        },
+        {
+          "name": "Controle de boletos",
+          "automationId": "",
+          "submenu": []
+        },
+        {
+          "name": "Controle de cartões",
+          "automationId": "369",
+          "leaf": true
+        },
+        {
+          "name": "Controle de cheques",
+          "automationId": "370",
+          "leaf": true
+        },
+        {
+          "name": "Controle de pagamentos",
+          "automationId": "371",
+          "leaf": true
+        },
+        {
+          "name": "Fluxo de Caixa",
+          "automationId": "373",
+          "leaf": true
+        }
+      ]
+    },
+    {
+      "name": "Curva ABC",
+      "automationId": "375",
+      "leaf": true
+    },
+    {
+      "name": "Produtos",
+      "automationId": "",
+      "submenu": [
+        {
+          "name": "Compras",
+          "automationId": "",
+          "submenu": [
+            {
+              "name": "Cotações",
+              "automationId": "379",
+              "leaf": true
+            },
+            {
+              "name": "Importar NFe",
+              "automationId": "380",
+              "leaf": true
+            },
+            {
+              "name": "Atualização de preços",
+              "automationId": "382",
+              "leaf": true
+            },
+            {
+              "name": "Registro de lotes e estoques",
+              "automationId": "383",
+              "leaf": true
+            }
+          ]
+        },
+        {
+          "name": "Gerenciamento de faltas",
+          "automationId": "385",
+          "leaf": true
+        },
+        {
+          "name": "Movimentação de estoques",
+          "automationId": "386",
+          "leaf": true
+        },
+        {
+          "name": "Remanejamento de estoque",
+          "automationId": "387",
+          "leaf": true
+        },
+        {
+          "name": "Separação de produtos - Delivery",
+          "automationId": "388",
+          "leaf": true
+        },
+        {
+          "name": "Baixa de fórmulas",
+          "automationId": "390",
+          "leaf": true
+        },
+        {
+          "name": "Controle de qualidade",
+          "automationId": "",
+          "submenu": [
+            {
+              "name": "Laudo interno",
+              "automationId": "392",
+              "leaf": true
+            },
+            {
+              "name": "Peso médio",
+              "automationId": "394",
+              "leaf": true
+            },
+            {
+              "name": "Conferência de processos",
+              "automationId": "396",
+              "leaf": true
+            }
+          ]
+        },
+        {
+          "name": "Horários dos laboratórios",
+          "automationId": "397",
+          "leaf": true
+        },
+        {
+          "name": "Produção interna",
+          "automationId": "399",
+          "leaf": true
+        },
+        {
+          "name": "Gerar estoque mínimo/ máximo",
+          "automationId": "401",
+          "leaf": true
+        },
+        {
+          "name": "Reajuste de preços",
+          "automationId": "402",
+          "leaf": true
+        },
+        {
+          "name": "Siproquim",
+          "automationId": "404",
+          "leaf": true
+        },
+        {
+          "name": "SNGPC",
+          "automationId": "",
+          "submenu": [
+            {
+              "name": "Livro de controlados",
+              "automationId": "406",
+              "leaf": true
+            },
+            {
+              "name": "Inventário",
+              "automationId": "408",
+              "leaf": true
+            }
+          ]
+        },
+        {
+          "name": "Captação de dados - Close-UP e IMS",
+          "automationId": "410",
+          "leaf": true
+        },
+        {
+          "name": "Histórico do estoque (Lote LA)",
+          "automationId": "412",
+          "leaf": true
+        }
+      ]
+    },
+    {
+      "name": "Documentos Fiscais",
+      "automationId": "",
+      "submenu": [
+        {
+          "name": "NF-e",
+          "automationId": "",
+          "submenu": [
+            {
+              "name": "Lista de documentos fiscais",
+              "automationId": "418",
+              "leaf": true
+            },
+            {
+              "name": "NF-e - Notas fiscais",
+              "automationId": "420",
+              "leaf": true
+            },
+            {
+              "name": "NF-e - Simples Remessa",
+              "automationId": "421",
+              "leaf": true
+            }
+          ]
+        },
+        {
+          "name": "NFC-e",
+          "automationId": "",
+          "submenu": [
+            {
+              "name": "Lista de documentos fiscais",
+              "automationId": "425",
+              "leaf": true
+            }
+          ]
+        },
+        {
+          "name": "NFS-e",
+          "automationId": "",
+          "submenu": [
+            {
+              "name": "Lista de documentos fiscais",
+              "automationId": "428",
+              "leaf": true
+            },
+            {
+              "name": "NFS-e - Nota Fiscal de Serviço",
+              "automationId": "430",
+              "leaf": true
+            }
+          ]
+        },
+        {
+          "name": "EFD/ Sintegra",
+          "automationId": "432",
+          "leaf": true
+        }
+      ]
+    },
+    {
+      "name": "Notas fiscais de serviços",
+      "automationId": "434",
+      "leaf": true
+    },
+    {
+      "name": "Resumo de vendas",
+      "automationId": "436",
+      "leaf": true
+    },
+    {
+      "name": "Resumo do financeiro",
+      "automationId": "437",
+      "leaf": true
+    },
+    {
+      "name": "Resumo de movimentações",
+      "automationId": "438",
+      "leaf": true
+    },
+    {
+      "name": "Análise do resultado do financeiro",
+      "automationId": "439",
+      "leaf": true
+    }
+  ],
+  "Omni Channel": [
+    {
+      "name": "Cadastros",
+      "automationId": "",
+      "submenu": []
+    }
+  ],
+  "Rastreabilidade": [
+    {
+      "name": "(comando direto, sem submenu — abre tela 267 diretamente)",
+      "automationId": "",
+      "leaf": true
+    }
+  ],
+  "Relatórios": [
+    {
+      "name": "Relatórios do sistema",
+      "automationId": "448",
+      "leaf": true
+    },
+    {
+      "name": "Rótulos",
+      "automationId": "450",
+      "leaf": true
+    },
+    {
+      "name": "Etiquetas",
+      "automationId": "451",
+      "leaf": true
+    },
+    {
+      "name": "Abrir arquivo RPF",
+      "automationId": "456",
+      "leaf": true
+    }
+  ],
+  "SisPS": [],
+  "Usuários": [],
+  "Utilitários": []
+}

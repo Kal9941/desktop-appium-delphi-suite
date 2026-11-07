@@ -1,0 +1,12 @@
+node_modules/
+tests/reports/
+.claude/
+*.log
+env.local.json
+docs/Inteligencia do cypress/
+
+# Guia de acesso ao banco: contém credencial, nunca versionar
+docs/ACESSO_BANCO_AGENTES.md
+
+# PDFs originais dos manuais do sistema (204 MB); os resumos versionados ficam em docs/manuais-resumo/
+docs/Manuais - Pharmacie/
