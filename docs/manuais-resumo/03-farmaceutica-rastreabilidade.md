@@ -1,6 +1,6 @@
 # Manuais — Parte farmacêutica: rastreabilidade completa e conferência de processos
 
-> Resumo de referência para escrita de cenários futuros, derivado dos PDFs em `docs/Manuais - Pharmacie/` (3 manuais).
+> Resumo de referência para escrita de cenários futuros, derivado dos PDFs em `docs/Manuais - OmniCare/` (3 manuais).
 > **Como foi feito (2026-10-28):** texto extraído dos PDFs com `pdftotext` e resumido por leitura integral, sem consultar o app.
 > **Limites:** não inclui as imagens/prints dos PDFs; as setas dos caminhos de menu se perderam na extração (aqui aparecem como `>`);
 > o manual quase nunca traz mensagens literais de erro/validação nem a lista de campos obrigatórios.
@@ -39,7 +39,7 @@ Sobreposição: "Rastreabilidade completo" (43 p.) é o superconjunto. "Rastreab
   3. Receita criada DEPOIS da configuração (receitas antigas não recebem os novos processos automaticamente) e receita "concluída" para aparecer a aba 5.
   4. Para registro rápido: funcionário com "Processo de Produção" padrão (Tela 007).
   5. Para registro sem login: código de barras do funcionário impresso e leitor de código de barras.
-  6. Para a "Mensagem enviada ao registrar o processo": integração WhatsApp no Pharmacie.
+  6. Para a "Mensagem enviada ao registrar o processo": integração WhatsApp no OmniCare.
   7. Permissões dos usuários configuradas (cap. 10).
 - **Fluxo:**
   1. **Cadastro (Tela 229):** preencher "Nome do processo"; escolher "Tipo de processo" (1 - Produção, 2 - Impressão de rótulo, 3 - Impressão de fichas, 4 - Outros processos); escolher "Tipo de inclusão" (Fórmula | Receita); opcionais "Descrição ou assinatura na ficha de pesagem" e "Mensagem enviada ao registrar o processo"; marcar opções (ver regras) → clicar "Gravar" → clicar "Limpar" para cadastrar o próximo.

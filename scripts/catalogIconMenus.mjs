@@ -1,4 +1,4 @@
-// Cataloga os itens dos menus "estilo ícone" (Usuários, Utilitários, SisPS,
+// Cataloga os itens dos menus "estilo ícone" (Usuários, Utilitários, AppERP,
 // Ajuda, Omni Channel) + o item direto Rastreabilidade — ver achado em
 // .agents/PROJECT_CONTEXT.md §10.0/§10.6: esses itens não têm `Name`
 // acessível via UI Automation, só `AutomationId` numérico pequeno (estável,
@@ -190,9 +190,9 @@ async function processIconMenu(driver, topName, done, stats) {
 
     if (item.expanded) {
       // 1 nível de recursão (achado: suficiente pros casos reais — Omni
-      // Channel > e-Commerce / Configurações). SisPS > Sistema é descartado
+      // Channel > e-Commerce / Configurações). AppERP > Sistema é descartado
       // à parte (achado-armadilha, ver PROJECT_CONTEXT.md §10.0).
-      if (topName === 'SisPS' && item.name === '' && !item.automationId) {
+      if (topName === 'AppERP' && item.name === '' && !item.automationId) {
         console.log(`[skip] ${key} (achado-armadilha: colide com o menu de sistema da janela)`)
         continue
       }
@@ -234,7 +234,7 @@ async function catalogRastreabilidade(driver, done, stats) {
 
 const TOP_ICON_MENUS = process.argv.slice(2).length > 0
   ? process.argv.slice(2)
-  : ['Usuários', 'Utilitários', 'SisPS', 'Ajuda', 'Omni Channel']
+  : ['Usuários', 'Utilitários', 'AppERP', 'Ajuda', 'Omni Channel']
 
 async function runSession(stats) {
   const done = loadDone()

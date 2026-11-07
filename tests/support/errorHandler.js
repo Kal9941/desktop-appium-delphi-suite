@@ -1,6 +1,6 @@
 // Classificador de erro — categoriza toda falha em causas conhecidas para que
 // o relatório cite a categoria, nunca "parece que o seletor está errado".
-// Adaptado de cypress-pharmacie-web/cypress/support/errorHandler.js para o
+// Adaptado de cypress-enterprise-suite/cypress/support/errorHandler.js para o
 // vocabulário de UI Automation (categorias em .agents/AGENTS.md §2).
 import {
   existsSync, readFileSync, writeFileSync, mkdirSync,

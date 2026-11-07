@@ -34,7 +34,7 @@ async function areaDasJanelasDoApp() {
 AfterStep(async function () {
   if (!ligado) return
   contador += 1
-  const pasta = path.join(os.tmpdir(), 'pharmacie-print-por-etapa')
+  const pasta = path.join(os.tmpdir(), 'OmniCare-print-por-etapa')
   const arquivo = path.join(pasta, `etapa-${process.pid}-${contador}.png`)
   try {
     mkdirSync(pasta, { recursive: true })

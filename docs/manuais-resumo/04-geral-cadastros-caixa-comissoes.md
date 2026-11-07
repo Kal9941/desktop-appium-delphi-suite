@@ -1,6 +1,6 @@
 # Manuais — Parte geral: cadastros, caixa, comissões, lotes de compra e A pagar
 
-> Resumo de referência para escrita de cenários futuros, derivado dos PDFs em `docs/Manuais - Pharmacie/` (13 manuais).
+> Resumo de referência para escrita de cenários futuros, derivado dos PDFs em `docs/Manuais - OmniCare/` (13 manuais).
 > **Como foi feito (2026-10-28):** texto extraído dos PDFs com `pdftotext` e resumido por leitura integral, sem consultar o app.
 > **Limites:** não inclui as imagens/prints dos PDFs; as setas dos caminhos de menu se perderam na extração (aqui aparecem como `>`);
 > o manual quase nunca traz mensagens literais de erro/validação nem a lista de campos obrigatórios.
@@ -125,7 +125,7 @@ Notas de leitura gerais:
 
 ## 5. Caixa
 
-- **Manual:** Caixa OK - "Manual - Como Utilizar o Caixa (Sistema Pharmacie)" (v. 26.2, abril/2026) - Parte geral
+- **Manual:** Caixa OK - "Manual - Como Utilizar o Caixa (Sistema OmniCare)" (v. 26.2, abril/2026) - Parte geral
 - **Objetivo:** Operação completa do caixa: abertura, movimentações, configuração, baixa de receita, nota fiscal, finalização, conferência e fechamento.
 - **Tela(s) e caminho de menu:** "PDV Frente de Caixa (Tela 395)"; opção "Controle de Caixa" -> "Tela 047"; "Alívio de Dinheiro" -> "tela 049 - Controle de Sangria"; três pontos > "Configurações" -> "Tela 568"; "Tela 056 (Lançamentos)"; (finalização da receita: tela não numerada neste manual).
 - **Pré-requisitos:** Caixa aberto antes de qualquer movimento ("é obrigatório realizar a abertura do caixa antes de registrar qualquer movimento"); na Tela 568: "À vista" = dinheiro e "A pagar" = método "A pagar" (se não existir, cadastrar na Tela 056 - Lançamentos); fórmula concluída com financeiro gerado para aparecer em "CONSULTAR"; sistema homologado para NFS-e.
@@ -240,14 +240,14 @@ Notas de leitura gerais:
 
 ---
 
-## 9. Como abrir solicitação no sistema pharmacie
+## 9. Como abrir solicitação no sistema OmniCare
 
-- **Manual:** Como abrir solicitação no sistema pharmacie - "Manual de como abrir uma solicitação no sistema" (v. 26.2, maio/2026) - Parte geral
+- **Manual:** Como abrir solicitação no sistema OmniCare - "Manual de como abrir uma solicitação no sistema" (v. 26.2, maio/2026) - Parte geral
 - **Objetivo:** Abrir e acompanhar solicitação/contato com a EnterpriseERP dentro do sistema.
-- **Tela(s) e caminho de menu:** "SisPS > Contato/Solicitação"; "tela 016 - EnterpriseERP (Contato/Solicitação)".
+- **Tela(s) e caminho de menu:** "AppERP > Contato/Solicitação"; "tela 016 - EnterpriseERP (Contato/Solicitação)".
 - **Pré-requisitos:** Usuário logado; máximo de 5 solicitações abertas por usuário.
 - **Fluxo:**
-  1. Entrar no sistema com o usuário; menu "SisPS > Contato/Solicitação" -> tela 016.
+  1. Entrar no sistema com o usuário; menu "AppERP > Contato/Solicitação" -> tela 016.
   2. Clicar no "+" verde para nova solicitação.
   3. Primeiro destino: informar o departamento; segundo destino: informar o tipo de solicitação.
   4. No campo "Contato/Solicitação" escrever o texto; selecionar "Enviar".
@@ -257,7 +257,7 @@ Notas de leitura gerais:
 - **Campos e regras de negócio:** Limite de 5 solicitações abertas por usuário; para abrir mais, avaliar solicitação concluída ou contatar Sucesso do Cliente. Os dados do manual são apenas exemplos ("Importante: As informações mostradas neste manual são apenas exemplos").
 - **Ações de risco:** "Enviar" (cria solicitação real para a EnterpriseERP - não usar em exploração); "Avaliar" (fecha o ciclo de uma solicitação concluída); anexar/gravar áudio.
 - **Candidatos a cenário de teste:**
-  1. Navegação: SisPS > Contato/Solicitação -> assere abertura da tela 016.
+  1. Navegação: AppERP > Contato/Solicitação -> assere abertura da tela 016.
   2. Positivo (apenas com autorização, pois envia ao suporte real): nova solicitação com departamento, tipo e texto -> assere linha com código, status e data.
   3. Validação: "Enviar" com texto vazio -> assere bloqueio (comportamento não informado).
   4. Borda: 5 abertas -> sexta bloqueada até "Avaliar" uma concluída.
@@ -321,7 +321,7 @@ Notas de leitura gerais:
 
 ## 12. Como cadastrar funcionário básico (diferencial)
 
-- **Manual:** Como cadastrar funcionário básico OK - "Manual - Cadastro de Funcionário no Sistema Pharmacie" (v. 26.2, julho/2026) - Parte geral
+- **Manual:** Como cadastrar funcionário básico OK - "Manual - Cadastro de Funcionário no Sistema OmniCare" (v. 26.2, julho/2026) - Parte geral
 - **Objetivo:** Roteiro mínimo: cadastrar funcionário, criar usuário/senha/intervalo e liberar permissões.
 - **Diferencial em relação ao completo:** Mesmo caminho ("Cadastro > Funcionário > Ficha do funcionário", Tela 007; "Usuário > Permissões", Tela 018) e mesmos passos 1 a 4 (cadastro, código de login, senha inicial 12345, "Intervalo permitido p/ conexão" 08:00 às 18:00, legenda AT/I/A/E, "Ativar todas as permissões" e a observação de usuário sem permissões não acessar). NÃO inclui: filtros de Formulários/Consultas/Relatórios, "Copiar permissões para outro usuário", grupos de permissões, vinculação a grupo, "Lista de usuário e grupo por permissão" e filtros avançados.
 - **Candidatos a cenário de teste:** cenários 1, 2, 3 e 6 do manual completo; sem cobertura de grupos.

@@ -5,7 +5,7 @@ import { BasePage } from './BasePage.js'
 // são `TJPsEdit` sem rótulo. Seletor real validado por inspeção com WinAppDriver
 // (equivalente ao "auto inspect"): posição por ClassName via XPath. O botão
 // "Conectar" também não é um Button nativo, é um TPanel com Name="Conectar"
-// (há, além dele, um Button real de mesmo nome "Conectar ao sistema Pharmacie"
+// (há, além dele, um Button real de mesmo nome "Conectar ao sistema OmniCare"
 // que é só o ícone de biometria — não usar).
 const XPATH = {
   // document order: primeiro TJPsEdit = senha (y maior/mais abaixo na tela),

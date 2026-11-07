@@ -29,7 +29,7 @@ Funcionalidade: OS abertas
 
   # @bug (2026-11-06, OS 361422, ROADMAP P2-15): na 145, forma com informe por Total múltiplo, o item em %
   # incluído à mão ignora os ativos em mg/mcg (MOV_ATENDIMENTO_CALC1 ordena pela quantidade digitada e
-  # V_QTDEMAIOR substitui em vez de somar). Mesma fórmula da receita 261001707 (consulfarma): esperado
+  # V_QTDEMAIOR substitui em vez de somar). Mesma fórmula da receita 261001707 (demostore): esperado
   # 0,4245 g de essência (10% da soma dos ativos, como pelo vínculo dos conservantes); hoje sai 0,37.
   # Fica fora da execução padrão; roda com npm run test:bugs. Sai do @bug quando a OS for corrigida.
   @bug @os-361422

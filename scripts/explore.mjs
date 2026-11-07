@@ -43,7 +43,7 @@ async function proceedPastLoginToMainWindow(driver, pid, { timeoutMs = 25000, in
       continue
     }
     const mainWindow = lastSeen.find(
-      (w) => w.title === 'SisPS - Soluções Inteligentes' && w.width > 500
+      (w) => w.title === 'AppERP - Soluções Inteligentes' && w.width > 500
     )
     if (mainWindow) {
       // O diálogo "Atenção" de reconexão pode demorar vários segundos pra

@@ -40,7 +40,7 @@ export async function proceedPastLoginToMainWindow(driver, pid, { timeoutMs = 25
       continue
     }
     const mainWindow = lastSeen.find(
-      (w) => w.title === 'SisPS - Soluções Inteligentes' && w.width > 500
+      (w) => w.title === 'AppERP - Soluções Inteligentes' && w.width > 500
     )
     if (mainWindow) {
       const QUIET_MS = 4000

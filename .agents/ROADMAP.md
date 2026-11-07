@@ -23,11 +23,11 @@
 | P2-01 | Usuário restrito para RBAC | `testData.*` preenchido no `env.json` (2026-11-06, conferido no banco); falta só um 2º funcionário (≠ 1) para `credentials.usuarioRestrito`, no `env.local.json`. | §5 P2-01 |
 | P2-02 | Grids owner-drawn sem seletor definido | Estratégia decidida (2026-11-06): teclado (seta) + conferência por pixel, como no Omni; valor no banco quando houver. | §5 P2-02 |
 | P2-03 | Primeiros cenários pras 7 telas exploradas | 145/046/007/112/418 já têm cobertura indireta (suítes 2/3/4); 032 e 018 sem nenhuma; aguarda o operador. | §5 P2-03 |
-| P2-15 | OS 361422: % ignora item em mg/mcg (bug do produto) | Causa na `CALC1` (consulfarma e ps_atu iguais); cenário `0.2` `@bug` vermelho de propósito até a correção. | §5 P2-15 |
+| P2-15 | OS 361422: % ignora item em mg/mcg (bug do produto) | Causa na `CALC1` (demostore e ps_atu iguais); cenário `0.2` `@bug` vermelho de propósito até a correção. | §5 P2-15 |
 | P2-14 | OS 364644: lado "o dono abre e o '!' some" | O `0.1` prova só que abrir o atendimento de outro não apaga o "!"; o outro lado precisa de mensagem nova do cliente num atendimento do funcionário da suíte. | §5 P2-14 |
 | P2-13 | 2.4: transferência automática do atendimento Omni não vista ao vivo | `OmniPage.transferirAtendimento` (471) só roda quando o telefone tem atendimento de outro atendente; a confirmação está suposta no layout do "Atenção". | §5 P2-13 |
 | P2-12 | Abrir fisicamente as 251 telas-folha do mapa de menu | Só nome/caminho documentado; abrir cada uma fica para quando houver prioridade/módulo definido pelo usuário. | §5 P2-12 |
-| P2-05 | Versão do app sob teste | Decidido (2026-11-06): ler a versão do `PS01.exe` no início da execução e gravar no relatório, sem travar. | §5 P2-05 |
+| P2-05 | Versão do app sob teste | Decidido (2026-11-06): ler a versão do `app.exe` no início da execução e gravar no relatório, sem travar. | §5 P2-05 |
 | P2-11 | Link de pagamento (rebaixado de P1-02) | Aguarda o operador liberar outra forma além de `Dinheiro`; `baseUrl`/`apiKey` vão no `env.local.json`, não no `env.json`. | §5 P2-11 |
 | P2-06 | Diálogo "Atenção: usuário já conectado" | Hoje sempre clica "Sim"; reavaliar se o app rodar testes contra ambiente compartilhado com uso humano real. | §5 P2-06 |
 | P2-07 | Firebird 2.5 | Só leitura na suíte `4.calculo` (oráculo do cálculo, decisão de 2026-11-05); escrita direta no banco segue fora de escopo. | §5 P2-07 |
@@ -98,7 +98,7 @@ como item novo se o operador pedir (cada VM segue com `maxInstances: 1`).
 - **[P1] CI**: decisão tomada — **self-hosted na VM** (não `windows-latest`
   hospedado; ver `AGENTS.md` §10 e o workflow comentado). Lógica do workflow
   pronta (`.github/workflows/tests.yml`: label `[self-hosted, Windows,
-  sisps-vm]`, `concurrency` em fila, geração do HTML + upload de
+  windows-runner-vm]`, `concurrency` em fila, geração do HTML + upload de
   `tests/reports/`). **Falta** (ação de infraestrutura, não só código,
   precisa de confirmação explícita antes de executar — instala serviço
   persistente): registrar o runner nesta VM (`gh api -X POST
@@ -137,7 +137,7 @@ como item novo se o operador pedir (cada VM segue com `maxInstances: 1`).
   restrito) e chaves de API continuam só no `env.local.json` (`AGENTS.md` §11.3). Cuidado: o `loadEnv` faz merge
   profundo e a folha do `env.local.json` vence, então tirar de lá as chaves `testData.*` que passarem para o `env.json`.
 - **Feito (2026-11-06)**: `testData` inteiro no `env.json`, cada valor conferido no banco (só leitura): cliente 867092
-  (KLISMAM), fornecedor 1640 (PHARMACIE DEMO), produto 1004813 (MARACUJA E.S.), receita = lab 2 SOLIDOS, forma 2
+  (KLISMAM), fornecedor 1640 (OmniCare DEMO), produto 1004813 (MARACUJA E.S.), receita = lab 2 SOLIDOS, forma 2
   CAPSULAS, ×30, 1004866 PASSIFLORA 250 mg, prescritor **14991** (`AUMENTOR` 0; o 1 do piloto tem **+80%**), 8 itens
   de pesagem do piloto (todos ativos); cálculo 14991/7 (+10%). O `env.local.json` desta VM tem `clienteId` e
   `calculo.*` com os mesmos valores (inofensivo). **Falta**: funcionário restrito (≠ 1) para RBAC, credencial local.
@@ -161,7 +161,7 @@ como item novo se o operador pedir (cada VM segue com `maxInstances: 1`).
   007 só como dado (funcionário); **032 e 018 seguem sem cobertura**. Aguarda o operador escolher módulo/prioridade.
 
 #### P2-15 · OS 361422: % ignora item em mg/mcg (bug do produto)
-- Receita 261001707 (consulfarma, 122): essência 10% = 0,4245 na fórmula 1 (incluída pelo vínculo de conservantes) e 0,37 na
+- Receita 261001707 (demostore, 122): essência 10% = 0,4245 na fórmula 1 (incluída pelo vínculo de conservantes) e 0,37 na
   fórmula 2 (incluída à mão), com glucosamina 1,5 g, condroitina 1,2 g (fator 1,0375), MSM 1 g e valeriana 500 mg.
 - Causa (`MOV_ATENDIMENTO_CALC1`, idêntica no `ps_atu` 26.6, 2026-11-06): o laço ordena por `C1.QUANTIDADE DESC` (digitada,
   sem converter: 500 mg vem antes de 1,5 g) e `V_QTDEMAIOR` SUBSTITUI quando o item é maior que o acumulado. A valeriana
@@ -193,8 +193,8 @@ como item novo se o operador pedir (cada VM segue com `maxInstances: 1`).
 
 #### P2-05 · Versão do app sob teste
 - **[P2] Versão do app sob teste**: decidir como fixar a build/versão do
-  `PS01.exe` usada no CI.
-- **Decisão (operador, 2026-11-06)**: registrar, não travar. Ler a versão do arquivo `C:\SisPS\PS01.exe` no início
+  `app.exe` usada no CI.
+- **Decisão (operador, 2026-11-06)**: registrar, não travar. Ler a versão do arquivo `C:\Apps\ERPDesktop\app.exe` no início
   da execução (`wdio.conf.js`) e gravá-la nos metadados do relatório; sem `versaoEsperada` nem falha por versão.
 
 #### P2-11 · Link de pagamento (rebaixado de P1-02 em 2026-11-06)

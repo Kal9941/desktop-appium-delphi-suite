@@ -29,7 +29,7 @@ export function loadEnv() {
 // Rodada contra OUTRO exe/banco sem editar env.local.json (2026-11-06: o 4.5 no exe 23.2.1.7 do
 // backup, que usa outro banco): o exe e o banco precisam andar juntos, senão o teste lê os
 // insumos e o orçamento num banco e o app grava em outro. Usuário e senha do banco seguem os do
-// env.local.json. Ex. (PowerShell): $env:APP_EXECUTABLE_PATH='C:\SisPS - BKP\PS01.exe'.
+// env.local.json. Ex. (PowerShell): $env:APP_EXECUTABLE_PATH='C:\Apps\ERPDesktop - BKP\app.exe'.
 function aplicarVariaveisDeAmbiente(env) {
   if (process.env.APP_EXECUTABLE_PATH) env.app = { ...env.app, executablePath: process.env.APP_EXECUTABLE_PATH }
   if (process.env.BANCO_HOST) env.banco = { ...env.banco, host: process.env.BANCO_HOST }

@@ -1,4 +1,4 @@
-# Self-hosted de propósito (não windows-latest hospedado): PS01.exe exige
+# Self-hosted de propósito (não windows-latest hospedado): app.exe exige
 # sessão de desktop interativa real (sem headless, ver AGENTS.md §4) E
 # conectividade de rede com o Firebird 2.5 — um runner hospedado da GitHub
 # não alcança esse banco. A VM que registra este runner já tem o driver
@@ -22,7 +22,7 @@ concurrency:
 
 jobs:
   e2e:
-    runs-on: [self-hosted, Windows, sisps-vm]
+    runs-on: [self-hosted, Windows, windows-runner-vm]
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4

@@ -23,7 +23,7 @@
 | §10.1+ Mapa de navegação do menu | árvore de cada menu (nativo × "estilo ícone") | navegar por menu; achar o caminho de um item |
 | §11 / §11.1 Catálogo de telas | número + descrição das telas-folha (245 nativas + 22 "estilo ícone") | descobrir o número de uma tela; antes de testar uma tela específica |
 | §12.1+ Inventário de `Cenário`s | cada `Cenário` com `L:` e o que valida | duplicidade antes de criar; achar `Cenário` pelo nome/número |
-| Manuais do sistema (`docs/Manuais - Pharmacie/`) | 54 manuais PDF indexados por tela, convenções de UI, dependências entre telas, ações de risco, oráculos numéricos e erros dos manuais; resumos em `docs/manuais-resumo/` | **antes de escrever** `Cenário` de uma funcionalidade de negócio (cadastro, caixa, comissão, baixa, rastreabilidade, rótulo, NF-e…) ou ao explorar tela nova: `Grep` do número da tela no índice |
+| Manuais do sistema (`docs/Manuais - OmniCare/`) | 54 manuais PDF indexados por tela, convenções de UI, dependências entre telas, ações de risco, oráculos numéricos e erros dos manuais; resumos em `docs/manuais-resumo/` | **antes de escrever** `Cenário` de uma funcionalidade de negócio (cadastro, caixa, comissão, baixa, rastreabilidade, rótulo, NF-e…) ou ao explorar tela nova: `Grep` do número da tela no índice |
 | Piloto 145 a 433 gravado (2026-10-28) | fluxo real receita até a baixa, dados usados, **precondição** (tela 445 "SEM BALANÇA"), mensagens do sistema, classes e nomes UIA observados | antes de escrever/alterar `Cenário` da 145, 433, "Registrar processo/baixa" ou pesagem monitorada |
 | Cálculo da receita na 145: motor, regras e massa (2026-11-05) | procedure `MOV_ATENDIMENTO_CALC1`, conversão de unidades, fator (ficha/lote/laudo, `FATORCALCULO`, `_UC`), preço, densidade, perda, cápsula/excipiente/embalagem, taxa técnica, índice e valor mínimo da forma, massa por caso e totais medidos | **antes de escrever/alterar** `Cenário` que confira valor ou quantidade de fórmula; ao escolher produto de teste para um fator; ao investigar total divergente na 145 |
 | Reposição de estoque (112/216/425) e importação de NF-e (218/132) gravadas (2026-10-29) | como repor saldo de lote (entrada pela 216, conferência pela 425), saldo do lote do 2.3, importar NF-e e relacionar produtos, compra 261000007 | antes de rodar o 2.3 (saldo do lote); antes de escrever/alterar `Cenário` de estoque, lote, conferência ou NF-e de compra |
@@ -43,7 +43,7 @@
   `@badeball/cypress-cucumber-preprocessor`, é específico do Cypress (se
   pluga no preprocessor dele) e não roda em projeto WebdriverIO/Appium;
   substituído pelo equivalente nativo do WDIO, mesma sintaxe Gherkin.
-- **App sob teste:** `C:\SisPS\PS01.exe` (processo `PS01.exe`), caminho
+- **App sob teste:** `C:\Apps\ERPDesktop\app.exe` (processo `app.exe`), caminho
   configurado em `env.json` (`app.executablePath`).
 - **Rede:** o app fala REST **apenas** para geração de link de pagamento
   (`tests/services/PaymentLinkService.js`). Todo o restante do domínio é
@@ -129,7 +129,7 @@ desktop-appium-delphi-suite/
 ## `env.json`
 
 Único arquivo de configuração de ambiente, versionado (mesmo padrão do
-`cypress-pharmacie-web`). Chaves atuais:
+`cypress-enterprise-suite`). Chaves atuais:
 
 - `app.executablePath` / `app.processName` / `app.arguments`
 - `credentials.nome` / `credentials.usuario` / `credentials.senha` /
@@ -180,7 +180,7 @@ real (não é só compilação/esqueleto) — login com as credenciais de
 
 **Achado**: botão "Logout" no canto superior direito da barra de ferramentas
 da janela principal (ver screenshot `tests/fixtures/menu-probe/
-click-SisPS.png`) é **owner-drawn — zero elementos UI Automation** nessa
+click-AppERP.png`) é **owner-drawn — zero elementos UI Automation** nessa
 região (mesmo padrão dos grids de listagem, ver "Grids de listagem" acima).
 Nenhum seletor por `Name`/`AutomationId` possível; único caminho é clique por
 coordenada com `pointerType: 'touch'` (`'mouse'` falha, ver "Particularidades
@@ -310,7 +310,7 @@ mesmo da credencial, não de uma falha genérica.
 
 **Achado-armadilha confirmado**: ao tentar logar (válido ou inválido), o app
 sempre cria em segundo plano a janela principal "cheia" (`ClassName="TfSIS_PS"`,
-título "SisPS - Soluções Inteligentes", maximizada) **desabilitada**
+título "AppERP - Soluções Inteligentes", maximizada) **desabilitada**
 (`IsEnabled="False"`) — ela só fica habilitada/populada quando a credencial é
 válida; não é uma janela nova a cada tentativa, é a mesma sendo
 habilitada/desabilitada. **Nunca usar só "achei uma janela com esse título e
@@ -386,7 +386,7 @@ grandes demais pra reler por inteiro toda vez que se precisa de um seletor.
   **2 vezes** na árvore quando uma tela está aberta — o **primeiro** da lista
   (ordem do documento) é o X do frame filho da tela (o que se quer fechar); o
   **segundo** é o X da própria janela principal do app (**nunca clicar
-  nele**, fecha o SisPS inteiro). `(await driver.$$('//Button[@AutomationId=
+  nele**, fecha o AppERP inteiro). `(await driver.$$('//Button[@AutomationId=
   "Close"]'))[0].click()`.
 - **Grids de listagem (ex.: tela 418) não são expostos como `DataGrid`/
   `List`/`Table`/`DataItem` em UI Automation** — são desenhados pelo
@@ -460,11 +460,11 @@ cálculo de receita, efeito dos flags nos totais nem inclusão de produto (ver
 
 **Consulta ao banco para massa de teste (só leitura)**
 - Guia: `docs/ACESSO_BANCO_AGENTES.md` (Firebird 2.5, VPN Corporativa).
-  Este app aponta (`C:\SisPS\ARQ\SIS\PS.ini`, chaves `SERVIDOR_IP` e
-  `SERVIDOR_BD`) para `db.local`, alias `consulfarma`.
+  Este app aponta (`C:\Apps\ERPDesktop\ARQ\SIS\PS.ini`, chaves `SERVIDOR_IP` e
+  `SERVIDOR_BD`) para `db.local`, alias `demostore`.
 - Conexão testada com `node-firebird` instalado **fora do repo** (pasta
   temporária): `host db.local`, porta 3050, `database:
-  'consulfarma'`, charset WIN1252, usuário/senha do guia (não copiar para docs).
+  'demostore'`, charset WIN1252, usuário/senha do guia (não copiar para docs).
 - Produtos: `ESTOQUE_GERAL` (`CODIGO`, `NOMEPRODUTO`, `CODIGO_ESTOQUE_TIPO`,
   `UNIDADE`, `VALORVENDA`, `VALORCUSTO`, `FATORCALCULO`, `MOVIMENTOESTOQUE`).
   `ESTOQUE_TIPO.MOVIMENTOESTOQUE`: 1 alopatia, 2 homeopatia, 3 revenda,
@@ -540,7 +540,7 @@ cálculo de receita, efeito dos flags nos totais nem inclusão de produto (ver
      `Gravar` da `TfMOV_0145`, clique UIA).
 - Janelas de busca/seleção e diálogos "Atenção" são janelas de topo: para
   digitar nelas é preciso reanexar a sessão ao handle delas e voltar à
-  principal (`SisPS - Soluções Inteligentes`, largura > 500) depois. Teclas
+  principal (`AppERP - Soluções Inteligentes`, largura > 500) depois. Teclas
   `windows: keys` com `text` não funcionam; dígitos por `virtualKeyCode` só
   alcançam a janela em foco da sessão.
 - Botões da 145 com a receita gravada (orçamento): `Forma de pagto.` abre
@@ -620,7 +620,7 @@ cálculo de receita, efeito dos flags nos totais nem inclusão de produto (ver
   na 145 (Enter não carrega). Esc não fecha a lista; usar o `Fechar`.
 
 **Tela 146 (Configurações do atendimento) e impacto na 145**
-- Abas Receita / Revenda / Geral; por loja (1 PHARMACIE DEMO). Valores do
+- Abas Receita / Revenda / Geral; por loja (1 OmniCare DEMO). Valores do
   banco de teste: desconto padrão 0; taxa técnica 50%; validade mínima 0;
   prazo máximo orçamento 3 dias; desconto máximo mensal 10.000; delivery loja 1;
   "Gravar venda somente como orçamento" ligada; "Bloquear vendas de clientes
@@ -848,7 +848,7 @@ cálculo de receita, efeito dos flags nos totais nem inclusão de produto (ver
   encerrada some e `Janela conversa` mostra contagem regressiva (23h 58m).
   **Texto livre** passa a ser aceito (✓/✓✓) e o status vai a "1 - EM
   ANDAMENTO" sozinho. `Anexar Arquivo` (diálogo de arquivo; jpg/png/pdf/doc…)
-  enviou imagem (✓✓), gravada em `C:\SisPS\ARQ\OMN\<atendimento>\<msg>.jpg`
+  enviou imagem (✓✓), gravada em `C:\Apps\ERPDesktop\ARQ\OMN\<atendimento>\<msg>.jpg`
   (botão `Pasta do Atend.` abre essa pasta no Explorer).
 - Outras funções do detalhe (todas testadas no 261000214): `Orçamento
   receita` (receita 261001668 vinculada); `Msg. Template` = tela **707**
@@ -1019,7 +1019,7 @@ cálculo de receita, efeito dos flags nos totais nem inclusão de produto (ver
 
 Mapeamento completo da árvore do menu superior (barra `Cadastros | Consultas
 | Movimentos | Relatórios | Rastreabilidade | Configurações | Usuários |
-Utilitários | Omni Channel | SisPS | Ajuda`), pedido pelo usuário como
+Utilitários | Omni Channel | AppERP | Ajuda`), pedido pelo usuário como
 continuação do inventário por número de tela (§ anterior). Script novo e
 reutilizável: `scripts/crawlMenu.mjs [menu...]` — clica cada `MenuItem`,
 diffa a árvore por `RuntimeId` antes/depois pra achar filhos novos, recursa em
@@ -1045,7 +1045,7 @@ total (seletores reais, screenshot, estrutura UIA).
 | Usuários | 4 (manual) | 0 | Dropdown "estilo ícone" (ver achado abaixo) — Alterar senha, Permissões, Status de conexão, Gerenciamento de senhas |
 | Utilitários | 8 (manual) | 0 | Dropdown "estilo ícone" — Autocorreção, Calculadora, Gerenciador de FTP, Teclado Virtual, Retirar acentos, Unificar cadastros, Atualizar sistema, Atualizar SGBD |
 | Omni Channel | 7 (manual) | 3 | Dropdown misto (nativo + ícone) — ver §10.6 |
-| SisPS | 4 (manual) | 1 | Dropdown "estilo ícone" — Contato/solicitação, Boleto EnterpriseERP, Liberação do sistema, Sistema (▶ não explorado, ver achado) |
+| AppERP | 4 (manual) | 1 | Dropdown "estilo ícone" — Contato/solicitação, Boleto EnterpriseERP, Liberação do sistema, Sistema (▶ não explorado, ver achado) |
 | Ajuda | 5 (manual) | 0 | Dropdown "estilo ícone" — Acesso remoto, Suporte, Treinamentos, Notas da versão, Sobre |
 
 **Achado técnico — dois estilos de menu distintos no mesmo app**:
@@ -1053,7 +1053,7 @@ total (seletores reais, screenshot, estrutura UIA).
   `MenuItem` padrão do Win32, todo item tem `Name` preenchido — é o que o
   crawler automatizado consegue mapear de ponta a ponta via XPath
   `//MenuItem[@Name="..."]`.
-- **"Estilo ícone"** (Usuários, Utilitários, SisPS, Ajuda, e parte de Omni
+- **"Estilo ícone"** (Usuários, Utilitários, AppERP, Ajuda, e parte de Omni
   Channel): dropdown com ícones coloridos (visualmente diferente — ver
   screenshots em `tests/fixtures/menu-probe/click-*.png`). Os itens aparecem
   como `<MenuItem ... Name="" .../>` — **sem nome acessível nenhum via UI
@@ -1076,7 +1076,7 @@ total (seletores reais, screenshot, estrutura UIA).
   qualquer menu, **suspeitar que é esse artefato**, não um submenu real.
 
 Dumps brutos de cada dropdown "estilo ícone" (screenshot): `tests/fixtures/
-menu-probe/click-Usuários.png`, `click-Utilitários.png`, `click-SisPS.png`,
+menu-probe/click-Usuários.png`, `click-Utilitários.png`, `click-AppERP.png`,
 `click-Ajuda.png`, `click-Omni Channel.png`.
 
 ### 10.1 Cadastros (148 telas-folha, 33 submenus)
@@ -1340,7 +1340,7 @@ menu-probe/click-Usuários.png`, `click-Utilitários.png`, `click-SisPS.png`,
 - Sistema
 - Personalizar menu rápido
 
-### 10.6 Menus "estilo ícone" (Usuários, Utilitários, Omni Channel, SisPS, Ajuda, Rastreabilidade)
+### 10.6 Menus "estilo ícone" (Usuários, Utilitários, Omni Channel, AppERP, Ajuda, Rastreabilidade)
 
 Levantado manualmente por screenshot (ver achado técnico em §10.0) — sem
 seletor por `Name` disponível, exceto onde indicado.
@@ -1352,7 +1352,7 @@ seletor por `Name` disponível, exceto onde indicado.
 - **Utilitários**: Autocorreção · Calculadora · Gerenciador de FTP · Teclado
   Virtual · _(separador)_ · Retirar acentos · Unificar cadastros ·
   _(separador)_ · Atualizar sistema · _(separador)_ · Atualizar SGBD.
-- **SisPS**: Contato/ solicitação · Boleto EnterpriseERP · _(separador)_ ·
+- **AppERP**: Contato/ solicitação · Boleto EnterpriseERP · _(separador)_ ·
   Liberação do sistema · _(separador)_ · **Sistema ▶** (não explorado — a
   tentativa de clicar colidiu com o menu de sistema da própria janela,
   mesmo artefato do achado-armadilha acima; precisa de clique por
@@ -1374,7 +1374,7 @@ seletor por `Name` disponível, exceto onde indicado.
   uma a uma e catalogadas (número + descrição) em §11, por pedido explícito
   do usuário feito logo depois. Só os itens "estilo ícone" de §10.6 (~20
   itens) continuam pendentes de abertura física.
-- `SisPS > Sistema`, `Omni Channel > e-Commerce`, `Omni Channel >
+- `AppERP > Sistema`, `Omni Channel > e-Commerce`, `Omni Channel >
   Configurações`: não exploradas (itens "estilo ícone" sem seletor por
   `Name` fácil, precisam de clique por coordenada).
 - Validar se o `AutomationId` numérico pequeno dos itens "estilo ícone" (ex.:
@@ -1686,7 +1686,7 @@ originais (§ "Inventário de telas por número").
 ### 11.1 Menus "estilo ícone" + Rastreabilidade (2026-10-08, continuação)
 
 Catálogo das ~22 telas dos menus "estilo ícone" (Usuários, Utilitários,
-SisPS, Ajuda, Omni Channel) + o item direto `Rastreabilidade` (ver §10.0/
+AppERP, Ajuda, Omni Channel) + o item direto `Rastreabilidade` (ver §10.0/
 §10.6 pros achados sobre por que esses itens não têm `Name`). Script:
 `scripts/catalogIconMenus.mjs` (novo) — mesma mecânica de
 `catalogScreens.mjs`, mas clica por `AutomationId` (numérico, estável) em
@@ -1724,9 +1724,9 @@ clique frágil por coordenada).
 | — | Utilitários > Teclado Virtual | (nenhuma janela nova detectada) |
 | — | Utilitários > Retirar acentos | (nenhuma janela nova detectada) |
 | 212 | Utilitários > Unificar cadastros | Unificar cadastros |
-| 016 | SisPS > Contato/ solicitação | EnterpriseERP [ Contato/ Solicitação ] |
-| — | SisPS > Boleto EnterpriseERP | EnterpriseERP -> Financeiro - Lista de boletos |
-| — | SisPS > Liberação do sistema | Liberação do sistema |
+| 016 | AppERP > Contato/ solicitação | EnterpriseERP [ Contato/ Solicitação ] |
+| — | AppERP > Boleto EnterpriseERP | EnterpriseERP -> Financeiro - Lista de boletos |
+| — | AppERP > Liberação do sistema | Liberação do sistema |
 | — | Ajuda > Acesso remoto | (nenhuma janela nova detectada) |
 | — | Ajuda > Suporte | (nenhuma janela nova detectada) |
 | — | Ajuda > Treinamentos | (nenhuma janela nova detectada) |
@@ -1742,7 +1742,7 @@ clique frágil por coordenada).
 
 ## 12. Inventário Canônico de Testes
 
-> **Como usar** (padrão trazido do projeto irmão `cypress-pharmacie-web` em
+> **Como usar** (padrão trazido do projeto irmão `cypress-enterprise-suite` em
 > 2026-10-08, visto em `docs/Inteligencia do cypress/` — pasta local de
 > referência, fora do versionamento, pode não existir em outro clone): Grep
 > por
@@ -1821,7 +1821,7 @@ Todos com os mesmos passos (`When` L:106 pré-condições · `When` L:113 monta 
 
 ---
 
-## Manuais do sistema (`docs/Manuais - Pharmacie/`, lidos em 2026-10-28)
+## Manuais do sistema (`docs/Manuais - OmniCare/`, lidos em 2026-10-28)
 
 54 PDFs oficiais da EnterpriseERP (23 em "Parte farmacêutica", 31 em "Parte geral"; versões do sistema 25.11 a 26.5).
 Resumos por manual em `docs/manuais-resumo/` (7 arquivos, `01`-`07`, coluna "Res." abaixo): objetivo, tela/menu, pré-requisitos,
@@ -1909,7 +1909,7 @@ e cenário negativo exige exploração da tela. Menu/tela já exploradas e com m
 | Cancelar lote e incluir lote pela tela de compra | 444, 155, 132 | 04 |
 | Comissão vendas | 007, 146, 379, 041 | 04 |
 | Comissão laboratorio | 007, 229, 146, 041 | 04 |
-| Como abrir solicitação no sistema pharmacie | 016 | 04 |
+| Como abrir solicitação no sistema OmniCare | 016 | 04 |
 | Como alterar data de entrega de fórmulas ao cliente | 145 (permissão 320) | 04 |
 | Como cadastrar funcionário | 007, 018 | 04 |
 | Como cadastrar funcionário básico | 007, 018 | 04 |
@@ -2002,7 +2002,7 @@ Fonte: gravação `piloto-29-10-2026_14-29-07-719` (gitignorada, 226 eventos, 16
 
 ## Cálculo da receita na 145: motor, regras e massa (explorado em 2026-11-05)
 
-Fonte: leitura do código das procedures no `consulfarma` (`RDB$PROCEDURES`, só leitura; pedido do operador) e **40 receitas montadas na 145** (só `Calcular`, nada gravado): 29 calculadas e comparadas uma a uma com o modelo abaixo, todas conferindo no centavo; as demais foram barradas pela forma (`ESTOQUE_PFF`), presas na forma de tipo de informe 0 ou ficaram sem snapshot por queda da VPN. Análise linha a linha: `docs/analise-calculo-145/` (fatores/lote/laudo e excipiente/cápsula/embalagem; os números de linha citados lá se referem a fontes extraídos fora do repo). Kit do banco: `C:\Projetos\acesso ao banco\` (`[R-BANCO]` do kit: consultar só com pedido do operador).
+Fonte: leitura do código das procedures no `demostore` (`RDB$PROCEDURES`, só leitura; pedido do operador) e **40 receitas montadas na 145** (só `Calcular`, nada gravado): 29 calculadas e comparadas uma a uma com o modelo abaixo, todas conferindo no centavo; as demais foram barradas pela forma (`ESTOQUE_PFF`), presas na forma de tipo de informe 0 ou ficaram sem snapshot por queda da VPN. Análise linha a linha: `docs/analise-calculo-145/` (fatores/lote/laudo e excipiente/cápsula/embalagem; os números de linha citados lá se referem a fontes extraídos fora do repo). Kit do banco: `C:\Projetos\acesso ao banco\` (`[R-BANCO]` do kit: consultar só com pedido do operador).
 
 **Motor em uso**
 - O `Calcular` chama `MOV_ATENDIMENTO_CALC1` (o `MOV_ATENDIMENTO_CALC_NEW` existe mas não é usado: `ATENDIMENTO_CALC` vazia). Cadeia: `CALC1_I` (carrega itens; fatores via `CALC7`) → laço do CALC1 (quantidade, fator, QVD) → `CALC6` (bases substituíveis, diluente, conservante, essência) → `CALC8`/`CALC10` (cápsula, excipiente, embalagem) → `CALC9` (observações) → taxa técnica e índices.
@@ -2072,14 +2072,14 @@ Fonte: leitura do código das procedures no `consulfarma` (`RDB$PROCEDURES`, só
   - Fórmula 1094 "PRODUÇÃO BILHÃO" (produto 1005946; crispatus 500 mlh, acidophilus 500 blh, rhamnosus 500 ufc, gasseri 500 blh), sachê forma 7, total 30: digitada → crispatus 0,11538 g, fórmula **3.456,42**; fórmula interna 1 u/dose → crispatus 115,384615 g, **4.977,98** (diferença 1.521,56 = só o crispatus ×1000).
   - Fórmula 1100 "TESTE LACTOBACILLUS" (produto 1005952; acidophilus 600 blh, bifidus 600 mlh, bulgaricus 600 mlh): digitada → 0,18 g cada mlh, **1.570,55**; fórmula interna 1 u/dose → 180 g cada, **4.814,50**.
   - 237 com a 1094 e Qtde. a ser feita 100: crispatus 0,3846 g (certo), acidophilus 500 g, rhamnosus 250 g, gasseri 500 g; valor de venda 11.313,0767.
-  - **Versão 23.2.1.7 (2026-11-06, exe `C:\SisPS - BKP\PS01.exe`, banco `bkp_antigo_gustavo_bkp` em 192.168.200.10)**: o bug já existia. Lá o
+  - **Versão 23.2.1.7 (2026-11-06, exe `C:\Apps\ERPDesktop - BKP\app.exe`, banco `bkp_antigo_gustavo_bkp` em 192.168.200.10)**: o bug já existia. Lá o
     `CALC2` converte `mlh` só por ÷ UFC (sem nenhum ÷1000) e o `CALC1` divide. Massa criada pela UI (autorizada): UFC 100 no 1000604
     (L. ACIDOPHILUS), produto 1001757 "TESTE QA BUG MILHAO" e fórmula interna **35** (1000604 500 `mlh`, uso 2, preço pelos produtos,
     Unidade, sachê forma 3, **Concluído** marcado: sem ele a 145 não expande a fórmula). 145 lab 1, forma 3, total 30: digitado 0,15 g,
     via fórmula 150,00 g (×1000). Receita de evidência **261143829** (paciente 2 e prescritor 2 "TESTE" do banco
     antigo; `ATENDIMENTO_A3`: fórmula 1 = 1000604 via 1001757, `QUANTIDADE_CALCULO` 150; fórmula 2 = digitado, 0,15). Na 23.2
     a FK do item é `CODIGO_ATEND_A1` e a 036 não fecha sozinha. Evidências em `tests/reports/investigacao-bug-milhao-23.2.1.7/`.
-  - Diferenças do exe 23.2.1.7: janela principal "SisPS CS - Soluções Inteligentes"; 112 e 145 em janela não maximizada (outras
+  - Diferenças do exe 23.2.1.7: janela principal "AppERP CS - Soluções Inteligentes"; 112 e 145 em janela não maximizada (outras
     coordenadas); na 145 "Total múltiplo" é o total (Múltiplo 1) e a inclusão de item é uma linha em cima da grade; 112 nova exige
     Tipo estoque e Classificação.
   - Na receita, a fórmula interna aparece como linha nível 0 (o produto 1005946, `u`) e os itens em `NIVELCALCULO` 1 da `ATENDIMENTO_CALC1`: o oráculo por item compara os itens de nível 1 com os mesmos itens digitados.

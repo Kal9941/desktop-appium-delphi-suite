@@ -14,7 +14,7 @@
 - Banco **somente leitura**: só `SELECT`/`WITH … SELECT` parametrizado, transação read-only, nunca `EXECUTE`/procedure; nunca imprimir credencial.
 - Credenciais só em `env.local.json` → `banco` {`host`,`port`,`database`,`user`,`password`}; `env.json` com placeholders vazios; **nunca editar `env.local.json`** (o operador preenche).
 - `testData.clienteId` = 867092, `testData.calculo.prescritorSemAcrescimo` = 14991, `testData.calculo.prescritorComAcrescimo` = 7 (vêm do `env.local.json`; falhar cedo e explícito se vazios).
-- Loja 1, funcionário 122 (`CODIGO_FUNCIONARIO` da tabela de trabalho), banco `consulfarma`.
+- Loja 1, funcionário 122 (`CODIGO_FUNCIONARIO` da tabela de trabalho), banco `demostore`.
 - Tolerâncias: fator exato na 4ª casa (truncado); quantidade em g ±0,0001; R$ ±0,01.
 - Arredondamentos do motor: fator e umidade `trunc4`; preço por grama `round4`; quantidade usada no valor `round4`.
 - Comentários e mensagens em pt-BR (`[R-COMENT]`); nomes de cenário `4.<n>` (`[R-NOME]`); Page Object sem banco nem asserção (`[R-POM]`).

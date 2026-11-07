@@ -1,6 +1,6 @@
 # Manuais — Parte geral: Omni Channel (atendimentos)
 
-> Resumo de referência para escrita de cenários futuros, derivado de `docs/Manuais - Pharmacie/Parte geral/Manual para clientes do omni channel - atendimentos.pdf` (1 manual).
+> Resumo de referência para escrita de cenários futuros, derivado de `docs/Manuais - OmniCare/Parte geral/Manual para clientes do omni channel - atendimentos.pdf` (1 manual).
 > **Como foi feito (2026-10-28):** texto extraído do PDF com `pdftotext` e lido por inteiro, sem consultar o app. Diferente dos outros 6 arquivos, este foi lido direto, sem subagente.
 > **Limites:** não inclui as imagens/prints do PDF (o manual é quase todo figura + legenda numerada: os números entre parênteses referem-se a marcações nos prints que o texto não reproduz);
 > não cita **nenhum número de tela**; não traz mensagens literais de erro/validação nem lista de campos obrigatórios.

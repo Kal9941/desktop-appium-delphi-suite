@@ -75,7 +75,7 @@ Cenário: 4.2 Fatores da ficha do produto em um orçamento
 ## Dados (`env.json` só com placeholders; valores reais em `env.local.json`, preenchidos pelo operador)
 - `banco`: credencial do Firebird (a mesma do kit de acesso ao banco).
 - `testData.clienteId` = 867092; `testData.calculo.prescritorSemAcrescimo` = 14991 (`AUMENTOR` 0); `testData.calculo.prescritorComAcrescimo` = 7 (`AUMENTOR` 10). Não usar o prescritor 1 (acréscimo de 80%).
-- Loja 1, banco de homologação `consulfarma`; funcionário = `credentials.usuario`, só da suíte (decisão de 2026-11-06: o 122 é usado por outro sistema).
+- Loja 1, banco de homologação `demostore`; funcionário = `credentials.usuario`, só da suíte (decisão de 2026-11-06: o 122 é usado por outro sistema).
 
 ## Validação do próprio modelo
 - `npm run calculo:test` (sem app, sem banco): os 29 cálculos medidos, o orçamento de 3 fórmulas e os 4 casos de lactobacilo (esperado correto e o resultado atual do motor, para documentar a diferença), mais truncamento do fator, arredondamento do preço, densidade, perda, índice por faixa, mínimo, taxa × múltiplo, UI com `UNIDADE_UMU` 0/1 e milhão ÷ 1000.

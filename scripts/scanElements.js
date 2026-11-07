@@ -1,5 +1,5 @@
 // Inventário de AutomationId/ControlType do app — equivalente ao
-// `npm run scan:elements` do cypress-pharmacie-web (detecta testid novo/
+// `npm run scan:elements` do cypress-enterprise-suite (detecta testid novo/
 // removido a cada deploy antes de escrever teste "no escuro").
 //
 // PENDÊNCIA (ver .agents/ROADMAP.md): este script ainda não conecta de fato

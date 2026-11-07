@@ -1,6 +1,6 @@
 # Manuais — Parte farmacêutica: cadastros de produtos, embalagens e formas farmacêuticas
 
-> Resumo de referência para escrita de cenários futuros, derivado dos PDFs em `docs/Manuais - Pharmacie/` (12 manuais).
+> Resumo de referência para escrita de cenários futuros, derivado dos PDFs em `docs/Manuais - OmniCare/` (12 manuais).
 > **Como foi feito (2026-10-28):** texto extraído dos PDFs com `pdftotext` e resumido por leitura integral, sem consultar o app.
 > **Limites:** não inclui as imagens/prints dos PDFs; as setas dos caminhos de menu se perderam na extração (aqui aparecem como `>`);
 > o manual quase nunca traz mensagens literais de erro/validação nem a lista de campos obrigatórios.

@@ -104,7 +104,7 @@ export async function proceedPastLoginToMainWindow({ timeoutMs = 25000, interval
     }
 
     const mainWindow = lastSeen.find(
-      (w) => w.title === 'SisPS - Soluções Inteligentes' && w.width > 500
+      (w) => w.title === 'AppERP - Soluções Inteligentes' && w.width > 500
     )
     if (mainWindow) {
       // "Settle": o diálogo "Atenção" às vezes aparece só DEPOIS da janela
@@ -187,7 +187,7 @@ export async function reattachToLoginWindow({ timeoutMs = 10000 } = {}) {
 export async function reattachToMainWindow({ timeoutMs = 10000 } = {}) {
   const mainWindow = await waitForWindow(
     currentPid,
-    (w) => w.title === 'SisPS - Soluções Inteligentes' && w.width > 500,
+    (w) => w.title === 'AppERP - Soluções Inteligentes' && w.width > 500,
     { timeoutMs }
   )
   await driver.reloadSession({ ...BASE_CAPS, 'appium:appTopLevelWindow': mainWindow.handle })
@@ -230,7 +230,7 @@ let respondendoJanela = 0
 let dialogosVistos = new Map()
 
 function ehDialogo(janela) {
-  return janela.width > 0 && (janela.title === 'Atenção' || (janela.title === 'SisPS - Soluções Inteligentes' && janela.width < 1000))
+  return janela.width > 0 && (janela.title === 'Atenção' || (janela.title === 'AppERP - Soluções Inteligentes' && janela.width < 1000))
 }
 
 async function vigiarDialogosUmaVez() {
@@ -373,7 +373,7 @@ export async function responderDialogoAtencaoSeAparecer(botao, { timeoutMs = 400
 export async function ativarJanelaPrincipal() {
   const mainWindow = await waitForWindow(
     currentPid,
-    (w) => w.title === 'SisPS - Soluções Inteligentes' && w.width > 500
+    (w) => w.title === 'AppERP - Soluções Inteligentes' && w.width > 500
   )
   await activateWindow(mainWindow.handle)
 }
@@ -428,7 +428,7 @@ export async function aguardarJanelaFechar(trecho, { timeoutMs = 10000 } = {}) {
 export async function listarDialogosAbertos() {
   const janelas = await listVisibleWindowsForProcess(currentPid)
   return janelas
-    .filter((w) => w.width > 0 && (w.title === 'Atenção' || (w.title === 'SisPS - Soluções Inteligentes' && w.width < 1000)))
+    .filter((w) => w.width > 0 && (w.title === 'Atenção' || (w.title === 'AppERP - Soluções Inteligentes' && w.width < 1000)))
     .map((w) => w.title)
 }
 

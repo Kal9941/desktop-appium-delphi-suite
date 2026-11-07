@@ -6,7 +6,7 @@ import { classificarDialogoDoCalculo } from './cenario.js'
 // Diálogos do Calcular da 145, compartilhados pela 4.calculo e pela 0.os (movido de
 // 4.calculo.steps.js em 2026-11-06, sem mudar o comportamento).
 
-const ehDialogo = (w) => w.width > 0 && (w.title === 'Atenção' || (w.title === 'SisPS - Soluções Inteligentes' && w.width < 1000))
+const ehDialogo = (w) => w.width > 0 && (w.title === 'Atenção' || (w.title === 'AppERP - Soluções Inteligentes' && w.width < 1000))
 
 // Responde os diálogos que o cálculo abre até ficar `quietoMs` sem janela nova. "calcular outra
 // fórmula?" → `outra`; QSP → conforme a massa; bloqueio (produto não permitido na forma, desativado)

@@ -1,6 +1,6 @@
 # Manuais — Parte geral: servidor, backup, rótulos, fichas, desativar fórmula e NF-e
 
-> Resumo de referência para escrita de cenários futuros, derivado dos PDFs em `docs/Manuais - Pharmacie/` (7 manuais).
+> Resumo de referência para escrita de cenários futuros, derivado dos PDFs em `docs/Manuais - OmniCare/` (7 manuais).
 > **Como foi feito (2026-10-28):** texto extraído dos PDFs com `pdftotext` e resumido por leitura integral, sem consultar o app.
 > **Limites:** não inclui as imagens/prints dos PDFs; as setas dos caminhos de menu se perderam na extração (aqui aparecem como `>`);
 > o manual quase nunca traz mensagens literais de erro/validação nem a lista de campos obrigatórios.
@@ -18,23 +18,23 @@ Observação de leitura: os .txt estão em Windows-1252 e as setas de menu ("→
 
 ## 1. Configuração do Servidor
 
-- **Manual:** Configuracao do Servidor OK (Parte geral). Cabeçalho: "Manual de Configuração do Servidor Pharmacie", versão do sistema 26.2, 41 páginas, julho de 2026, elaborado por Thaiffane (Sucesso do Cliente).
-- **Objetivo:** Instalar e configurar o servidor Pharmacie (Firebird 64 bits, aliases.conf, IBExpert, GSEC, Firewall) até a abertura do sistema.
-- **Tela(s) e caminho de menu:** Nenhuma tela do Pharmacie, exceto a abertura de `PS01` (atalho da Área de Trabalho ou executável PS01 na pasta SisPs). Caminhos de arquivo citados: `C:\SisPs\BD`, "Este Computador > Disco Local (C:) > Arquivos de Programas > Firebird > Firebird_2_5" (aliases.conf, firebird.conf), "bin > fb_inet_server". Comando `firewall.cpl` (Windows + R).
-- **Pré-requisitos:** Instalador do Firebird 64 bits e do IBExpert; sistema Pharmacie instalado (outro manual, via link); banco de dados e banco de imagens para copiar em `SisPs\BD`; execução como administrador. Confirmar se o computador já é servidor de outro sistema do cliente (principalmente em implantação).
+- **Manual:** Configuracao do Servidor OK (Parte geral). Cabeçalho: "Manual de Configuração do Servidor OmniCare", versão do sistema 26.2, 41 páginas, julho de 2026, elaborado por Thaiffane (Sucesso do Cliente).
+- **Objetivo:** Instalar e configurar o servidor OmniCare (Firebird 64 bits, aliases.conf, IBExpert, GSEC, Firewall) até a abertura do sistema.
+- **Tela(s) e caminho de menu:** Nenhuma tela do OmniCare, exceto a abertura de `PS01` (atalho da Área de Trabalho ou executável PS01 na pasta AppERP). Caminhos de arquivo citados: `C:\Apps\ERPDesktop\BD`, "Este Computador > Disco Local (C:) > Arquivos de Programas > Firebird > Firebird_2_5" (aliases.conf, firebird.conf), "bin > fb_inet_server". Comando `firewall.cpl` (Windows + R).
+- **Pré-requisitos:** Instalador do Firebird 64 bits e do IBExpert; sistema OmniCare instalado (outro manual, via link); banco de dados e banco de imagens para copiar em `AppERP\BD`; execução como administrador. Confirmar se o computador já é servidor de outro sistema do cliente (principalmente em implantação).
 - **Fluxo:**
   1. Instalar Firebird 64 bits (executar como administrador): idioma > OK; "Seguinte"; "Aceito o contrato"; manter caminho; componentes "Binários Classic Server"; manter pasta do Menu Iniciar; "Instalar"; desmarcar "After installation - What's next?" e "Concluir".
-  2. Instalar o sistema Pharmacie (manual externo). Criar pasta `BD` dentro de `SisPs` e copiar banco de dados e banco de imagens.
-  3. Editar `aliases.conf` (Bloco de Notas): apagar o conteúdo e digitar manualmente `pharmacie = C:\SisPs\BD\psbd.fdb` e `ps_img = C:\SisPs\BD\psbd_img.fdb`. Se o Windows não permitir salvar: Alt + Enter > guia "Segurança" > "Editar" > janela "Permissões para aliases" > marcar todas as opções da coluna "Permitir" para todos os grupos/usuários > "Aplicar" > "OK" > "Aplicar" > "OK"; reabrir e salvar.
+  2. Instalar o sistema OmniCare (manual externo). Criar pasta `BD` dentro de `AppERP` e copiar banco de dados e banco de imagens.
+  3. Editar `aliases.conf` (Bloco de Notas): apagar o conteúdo e digitar manualmente `OmniCare = C:\Apps\ERPDesktop\BD\psbd.fdb` e `ps_img = C:\Apps\ERPDesktop\BD\psbd_img.fdb`. Se o Windows não permitir salvar: Alt + Enter > guia "Segurança" > "Editar" > janela "Permissões para aliases" > marcar todas as opções da coluna "Permitir" para todos os grupos/usuários > "Aplicar" > "OK" > "Aplicar" > "OK"; reabrir e salvar.
   4. Clientes com filial: em `firebird.conf`, Ctrl + F "AUX_PORT", remover `#` e configurar `AUX_PORT = 3051`; salvar.
   5. Instalar IBExpert (administrador): "Avançar"; "Eu aceito os termos do contrato"; manter caminho; desmarcar "Não criar uma pasta no meu Menu Iniciar" e "Criar um ícone na Área de Trabalho"; "Instalar"; manter "Executar IBExpert by Porongo" e "Concluir". Se perguntar sobre a interface, escolher "MDI". Criar/registrar banco na tela "Criar Banco de Dados" e clicar "Register".
   6. Executar GSEC como administrador: campo "Sistema Operacional" = "Windows Seven" > "Alterar".
   7. Teste: abrir IBExpert, duplo clique no banco registrado, informar a senha > OK. Se abrir, configuração concluída.
-  8. Firewall (`firewall.cpl`): "Alterar configurações" > "Permitir outro aplicativo" > "Procurar" > adicionar `PS01` e `PS04` (em `C:\SisPs`) e `fb_inet_server` (em `...\Firebird_2_5\bin`) > "Adicionar" > "OK". Depois "Ativar ou desativar o Firewall do Windows Defender" > "Desativar o Firewall do Windows Defender" > "OK".
+  8. Firewall (`firewall.cpl`): "Alterar configurações" > "Permitir outro aplicativo" > "Procurar" > adicionar `PS01` e `PS04` (em `C:\Apps\ERPDesktop`) e `fb_inet_server` (em `...\Firebird_2_5\bin`) > "Adicionar" > "OK". Depois "Ativar ou desativar o Firewall do Windows Defender" > "Desativar o Firewall do Windows Defender" > "OK".
   9. Abrir o sistema pelo atalho ou executável PS01.
 - **Campos e regras de negócio:** Instalar primeiro o Firebird 64 bits. Digitar o aliases.conf manualmente (copiar/colar "já causou erros de configuração em outras instalações"). No registro do banco no IBExpert, manter o campo "Password" em branco: "Nunca salve a senha do banco de dados nesse cadastro". Erros de acesso: verificar senha, se o GSEC foi executado como administrador, e se o aliases.conf foi digitado corretamente. Antes de abrir o sistema, confirmar que o PS01 está na mesma versão do banco (evita atualização na primeira execução); substituir o PS01 não altera as configurações do servidor.
 - **Ações de risco:** INFRAESTRUTURA - NÃO EXPLORAR PELA UI. Instalar/alterar Firebird, editar aliases.conf e firebird.conf (aponta o banco), GSEC (usuários/senhas do banco), desativar o Firewall do Windows Defender, e registrar banco no IBExpert. O manual alerta que instalação incorreta "poderá interromper o funcionamento do banco de dados existente".
-- **Candidatos a cenário de teste:** Não testável pela UI do Pharmacie de forma segura. Tudo ocorre fora do PS01 (instaladores, Bloco de Notas, IBExpert, firewall). O único ponto ligado ao sistema é a abertura do PS01 com o banco acessível (smoke de abertura/login, que já é coberto pelo setup do projeto). Nenhum cenário Cucumber de configuração é recomendado.
+- **Candidatos a cenário de teste:** Não testável pela UI do OmniCare de forma segura. Tudo ocorre fora do PS01 (instaladores, Bloco de Notas, IBExpert, firewall). O único ponto ligado ao sistema é a abertura do PS01 com o banco acessível (smoke de abertura/login, que já é coberto pelo setup do projeto). Nenhum cenário Cucumber de configuração é recomendado.
 - **Lacunas:** Valores exatos digitados na tela "Criar Banco de Dados" (só em imagem); versão exata do instalador; senha do banco não informada; o manual manda desativar o Firewall inteiro (recomendação de segurança discutível, não justificada); "Windows Seven" no GSEC sem explicação; sem descrição de mensagens de erro do sistema.
 
 ---
@@ -42,21 +42,21 @@ Observação de leitura: os .txt estão em Windows-1252 e as setas de menu ("→
 ## 2. Configuração de backup
 
 - **Manual:** Configuração de backup OK (Parte geral). Título "PROCEDIMENTO PARA CONFIGURAR BACKUP", 15 páginas, julho de 2026, Thaiffane (Sucesso do Cliente). Versão do sistema: não informado.
-- **Objetivo:** Instalar e configurar o "SisPS BKP - Gerenciador de Backup" (aplicativo separado do Pharmacie) para gerar backup automático do banco e iniciar com o Windows.
-- **Tela(s) e caminho de menu:** Nenhuma tela numerada do Pharmacie. Menu do ícone da bandeja do Gerenciador: "Configurações > Banco de Dados > Selecionar" e "Configurações > Status" (setas perdidas). Pastas: `SisPS\BD`, `SisPS_BKP\BKP` (backups gerados), `SisPS BKP` (executável `PSBK`), `shell:startup`.
-- **Pré-requisitos:** Instalador do Gerenciador de Backup; banco de dados em `C:\SisPS\BD`; direitos de administrador.
+- **Objetivo:** Instalar e configurar o "AppERP BKP - Gerenciador de Backup" (aplicativo separado do OmniCare) para gerar backup automático do banco e iniciar com o Windows.
+- **Tela(s) e caminho de menu:** Nenhuma tela numerada do OmniCare. Menu do ícone da bandeja do Gerenciador: "Configurações > Banco de Dados > Selecionar" e "Configurações > Status" (setas perdidas). Pastas: `AppERP\BD`, `AppERP_BKP\BKP` (backups gerados), `AppERP BKP` (executável `PSBK`), `shell:startup`.
+- **Pré-requisitos:** Instalador do Gerenciador de Backup; banco de dados em `C:\Apps\ERPDesktop\BD`; direitos de administrador.
 - **Fluxo:**
-  1. Executar o instalador como Administrador; manter caminho padrão (pode ser outro disco local); deixar desmarcada "Criar um ícone na Área de Trabalho"; "Próximo" > "Instalar"; manter marcada "Iniciar o SisPS BKP - Gerenciador de Backup" > "Concluir".
+  1. Executar o instalador como Administrador; manter caminho padrão (pode ser outro disco local); deixar desmarcada "Criar um ícone na Área de Trabalho"; "Próximo" > "Instalar"; manter marcada "Iniciar o AppERP BKP - Gerenciador de Backup" > "Concluir".
   2. Localizar o ícone na barra de tarefas ou na área de ícones ocultos (seta ^).
-  3. Botão direito no ícone > "Configurações > Banco de Dados > Selecionar" > Explorador: Este Computador > C: > SisPS > BD > selecionar o banco de dados > "Abrir".
+  3. Botão direito no ícone > "Configurações > Banco de Dados > Selecionar" > Explorador: Este Computador > C: > AppERP > BD > selecionar o banco de dados > "Abrir".
   4. "Configurações > Status": escolher o intervalo do backup (definido com o cliente). O programa inicia automaticamente a primeira execução; aguardar e verificar o arquivo.
-  5. Conferir em C: > `SisPS_BKP` > `BKP` se existe o arquivo de backup.
+  5. Conferir em C: > `AppERP_BKP` > `BKP` se existe o arquivo de backup.
   6. Opcional: até 2 locais de cópia adicionais (qualquer local; recomenda OneDrive).
-  7. Iniciar com o Windows: Windows + R > `shell:startup` > copiar o executável `PSBK` da pasta `SisPS BKP` e colar na pasta Inicializar.
+  7. Iniciar com o Windows: Windows + R > `shell:startup` > copiar o executável `PSBK` da pasta `AppERP BKP` e colar na pasta Inicializar.
   8. Teste final: reiniciar o computador e confirmar que o Gerenciador iniciou e o backup está sendo gerado.
 - **Campos e regras de negócio:** "Sempre configure primeiro o caminho do banco de dados. Somente depois configure o Status do backup." Selecionar apenas o banco de dados, NÃO o banco de imagens. Intervalo: opções não detalhadas no texto. Até 2 locais de cópia.
 - **Ações de risco:** INFRAESTRUTURA - NÃO EXPLORAR PELA UI. Selecionar o banco errado, alterar "Status" (dispara backup imediato do banco), mexer na pasta Inicializar e reiniciar o computador. Ações de backup acessam o arquivo .fdb em uso.
-- **Candidatos a cenário de teste:** Não testável pela UI do Pharmacie; é outro aplicativo (bandeja do Windows) e as verificações são no sistema de arquivos/reinicialização. Não recomendado em suíte Appium do PS01. Em ambiente isolado de laboratório, apenas verificação manual/script de arquivo (existência de arquivo em `C:\SisPS_BKP\BKP` após selecionar intervalo), fora do escopo Cucumber/PS01.
+- **Candidatos a cenário de teste:** Não testável pela UI do OmniCare; é outro aplicativo (bandeja do Windows) e as verificações são no sistema de arquivos/reinicialização. Não recomendado em suíte Appium do PS01. Em ambiente isolado de laboratório, apenas verificação manual/script de arquivo (existência de arquivo em `C:\Apps\ERPDesktop_BKP\BKP` após selecionar intervalo), fora do escopo Cucumber/PS01.
 - **Lacunas:** Lista de intervalos disponíveis em "Status", nome/extensão do arquivo de backup, política de retenção, como configurar os 2 locais de cópia (menu não indicado), versão do sistema, comportamento quando o banco está em uso.
 
 ---
@@ -207,7 +207,7 @@ Observação de leitura: os .txt estão em Windows-1252 e as setas de menu ("→
 - **Campos e regras de negócio:**
   - Cálculo de valores (exemplo do manual): Valor de custo = Valor de compra × índice de custo (R$ 2,00 × 1,50 = R$ 3,00; índice 1,50 = acréscimo de 50%). Valor de venda = Valor de custo × índice de venda (R$ 3,00 × 0,6667 ≈ R$ 2,00; redução de 33,33%). Valor de referência = Valor de venda × índice de referência (R$ 2,00 × 1,00 = R$ 2,00). No exemplo, custo R$ 3,00 e venda R$ 2,00, diferença negativa de R$ 1,00 (33,33% do custo).
   - "Valor de compra": valor pago ao fornecedor por grama, mililitro ou unidade. Preencher os valores antes de finalizar para não deixar o insumo com valor zerado.
-  - Quantidades no Pharmacie são em gramas, mililitros ou unidades.
+  - Quantidades no OmniCare são em gramas, mililitros ou unidades.
   - "Tipo de produto" incorreto leva a nota importada com cadastro inadequado (ex.: Embalagem cadastrada como Alopatia).
   - "Nome" não deve conter lote/peso (aparece na Tela 145 e "Descrição no rótulo" alimenta o rótulo da matéria-prima).
   - Cores: vermelho = não cadastrado; preto = cadastrado; verde = preenchido. Só importa quando todos os itens estão verdes.

@@ -1,6 +1,6 @@
 // Mapeia a árvore INTEIRA do menu superior (Cadastros, Consultas,
 // Movimentos, Relatórios, Rastreabilidade, Configurações, Usuários,
-// Utilitários, Omni Channel, SisPS, Ajuda) sem abrir as telas-folha —
+// Utilitários, Omni Channel, AppERP, Ajuda) sem abrir as telas-folha —
 // só descobre a estrutura (nomes, hierarquia, se tem submenu).
 // NÃO faz parte da suíte de testes. Uso: node scripts/crawlMenu.mjs [menu...]
 // Saída: tests/fixtures/menu-map/<menu>.json (árvore) + console.log de progresso.
@@ -21,7 +21,7 @@ mkdirSync(OUT_DIR, { recursive: true })
 
 const ALL_TOP_MENUS = [
   'Cadastros', 'Consultas', 'Movimentos', 'Relatórios', 'Rastreabilidade',
-  'Configurações', 'Usuários', 'Utilitários', 'Omni Channel', 'SisPS', 'Ajuda',
+  'Configurações', 'Usuários', 'Utilitários', 'Omni Channel', 'AppERP', 'Ajuda',
 ]
 const TOP_MENUS = process.argv.slice(2).length > 0 ? process.argv.slice(2) : ALL_TOP_MENUS
 

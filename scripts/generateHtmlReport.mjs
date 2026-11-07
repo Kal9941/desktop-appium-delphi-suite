@@ -115,8 +115,8 @@ export async function generateHtmlReport({ mode = 'latest', filterText } = {}) {
     await generate({
       jsonDir: stagingDir,
       reportPath,
-      reportName: 'SisPS - Relatório de testes desktop',
-      pageTitle: 'SisPS - Relatório de testes desktop',
+      reportName: 'AppERP - Relatório de testes desktop',
+      pageTitle: 'AppERP - Relatório de testes desktop',
       displayDuration: true,
       humanReadableDuration: true,
       displayReportTime: true,

@@ -176,11 +176,11 @@ test('montarResumo mostra clique sem número de tela e sem legenda', () => {
 })
 
 test('ps01EmExecucao reconhece o processo na saída do tasklist', () => {
-  assert.equal(ps01EmExecucao('PS01.exe    1234 Console    1   80.000 K', 'PS01.exe'), true)
+  assert.equal(ps01EmExecucao('app.exe    1234 Console    1   80.000 K', 'app.exe'), true)
 })
 
 test('ps01EmExecucao devolve false quando o tasklist não encontra o processo', () => {
-  assert.equal(ps01EmExecucao('INFORMAÇÕES: nenhuma tarefa em execução correspondente aos critérios especificados.', 'PS01.exe'), false)
+  assert.equal(ps01EmExecucao('INFORMAÇÕES: nenhuma tarefa em execução correspondente aos critérios especificados.', 'app.exe'), false)
 })
 
 // --- achados da calibração de 2026-10-28 ---
@@ -203,9 +203,9 @@ test('agruparTeclas trata Esc e Enter como tecla, nunca como texto', () => {
 
 test('montarResumo mostra as coordenadas mesmo quando o alvo tem legenda (clique em menu)', () => {
   const resumo = montarResumo([
-    { seq: 4, t: 0, tipo: 'clique', tela: { numero: null, titulo: 'SisPS' }, alvo: { classe: 'TfSIS_PS', titulo: 'SisPS - Soluções Inteligentes' }, rx: 40, ry: 52, avisos: [] },
+    { seq: 4, t: 0, tipo: 'clique', tela: { numero: null, titulo: 'AppERP' }, alvo: { classe: 'TfSIS_PS', titulo: 'AppERP - Soluções Inteligentes' }, rx: 40, ry: 52, avisos: [] },
   ])
-  assert.ok(resumo.includes('"SisPS - Soluções Inteligentes" (TfSIS_PS) em (40,52)'))
+  assert.ok(resumo.includes('"AppERP - Soluções Inteligentes" (TfSIS_PS) em (40,52)'))
 })
 
 test('montarResumo mostra a legenda sem o atalho & (o UIA devolve o Name sem ele)', () => {
@@ -231,17 +231,17 @@ test('resolverTela acha o número na cadeia do controle clicado', () => {
   const tela = resolverTela({
     alvo: { classe: 'TBitBtn', titulo: 'Gravar' },
     cadeia: [{ classe: 'TPanel', titulo: '' }, { classe: 'TfSIS_145', titulo: '[ 145 ] - Atendimento' }],
-    janelaTopo: { classe: 'TfSIS_PS', titulo: 'SisPS' },
+    janelaTopo: { classe: 'TfSIS_PS', titulo: 'AppERP' },
   })
-  assert.deepEqual(tela, { numero: '145', titulo: 'SisPS' })
+  assert.deepEqual(tela, { numero: '145', titulo: 'AppERP' })
 })
 
 test('resolverTela usa a primeira classe visível quando não houve clique (checkpoint)', () => {
   const tela = resolverTela({
     classesVisiveis: ['TfSIS_PS', 'TfSIS_145', 'TfSIS_433'],
-    foco: { titulo: 'SisPS - Soluções Inteligentes', handle: '0x1' },
+    foco: { titulo: 'AppERP - Soluções Inteligentes', handle: '0x1' },
   })
-  assert.deepEqual(tela, { numero: '145', titulo: 'SisPS - Soluções Inteligentes' })
+  assert.deepEqual(tela, { numero: '145', titulo: 'AppERP - Soluções Inteligentes' })
 })
 
 test('resolverTela devolve número null e título vazio quando nada identifica a tela', () => {

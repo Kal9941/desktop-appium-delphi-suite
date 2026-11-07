@@ -6,7 +6,7 @@ import { classifyError } from './errorHandler.js'
 // nunca saíram abaixo de ~17 KB, mesmo pra janela principal sozinha. Abaixo
 // disso, o dump provavelmente veio da janela errada/vazia (sessão presa no
 // lugar errado) — equivalente ao check de "last-failure-dom.html < 5 KB" do
-// cypress-pharmacie-web, recalibrado pro tamanho típico de uma árvore UIA.
+// cypress-enterprise-suite, recalibrado pro tamanho típico de uma árvore UIA.
 const SUSPICIOUSLY_SMALL_UIA_TREE_BYTES = 3000
 
 function formatLogLine(record) {
@@ -28,7 +28,7 @@ function formatLogLine(record) {
 // dump da árvore de UI Automation ativa no momento da falha, namespaced por
 // sessão. Também persiste a classificação em disco (equivalente a
 // failures.json/failures.log + last-failure.json/last-failure.log do
-// cypress-pharmacie-web — ver AGENTS.md §9), já que só `console.error` some
+// cypress-enterprise-suite — ver AGENTS.md §9), já que só `console.error` some
 // do scrollback do terminal assim que a execução termina.
 export async function captureFailureArtifacts({
   driver, sessionLabel, testTitle, error,
@@ -75,12 +75,12 @@ export async function captureFailureArtifacts({
 
   // Consolidado da rodada (append-only, uma linha por falha) — JSONL, padrão
   // já usado neste projeto (ver scripts/catalog*.mjs), equivalente ao
-  // failures.json/failures.log do cypress-pharmacie-web.
+  // failures.json/failures.log do cypress-enterprise-suite.
   appendFileSync(path.join(dir, 'failures.jsonl'), `${JSON.stringify(record)}\n`, 'utf-8')
   appendFileSync(path.join(dir, 'failures.log'), logLine, 'utf-8')
 
   // Ponteiro rápido pra última falha (sobrescrito a cada chamada) —
-  // equivalente ao last-failure.json/last-failure.log do cypress-pharmacie-web.
+  // equivalente ao last-failure.json/last-failure.log do cypress-enterprise-suite.
   writeFileSync(path.join(dir, 'last-failure.json'), JSON.stringify(record, null, 2), 'utf-8')
   writeFileSync(path.join(dir, 'last-failure.log'), logLine, 'utf-8')
 

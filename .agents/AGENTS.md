@@ -33,16 +33,16 @@ Checklist de disciplina operacional, não de técnica de teste (isso é §1+).
 Vale para **todo** turno, não só quando o usuário pergunta — motivada por
 achados reais já vividos nesta sessão (2026-10-08): uma sessão do WinAppDriver
 caiu sem aviso e cascateou dezenas de falhas idênticas antes de alguém notar,
-e processos `PS01.exe`/`node` (Appium) ficaram rodando entre turnos mais de
+e processos `app.exe`/`node` (Appium) ficaram rodando entre turnos mais de
 uma vez.
 
 | Quando | Verificar |
 |---|---|
-| Início da sessão | ler só o quente (`[R-SKILL]` §11.1); medir o estado real (`git status`, `grep -n "@wip\|@skip"` nos `.feature`, `tasklist` por `PS01.exe`/`node` residual) em vez de confiar só no doc |
+| Início da sessão | ler só o quente (`[R-SKILL]` §11.1); medir o estado real (`git status`, `grep -n "@wip\|@skip"` nos `.feature`, `tasklist` por `app.exe`/`node` residual) em vez de confiar só no doc |
 | Antes de iniciar trabalho que pode levar vários minutos ou ser interrompido por queda de sessão (rodar suíte/cenário, exploração em lote, edição de vários arquivos em sequência) | `[R-CKPT]`: substituir a entrada em `ROADMAP.md` § "Checkpoint de tarefa em andamento" pela tarefa atual **antes** de começar — nunca só no fechamento do turno (`[R-SYNC]` cobre o fechamento, não o início). Se a sessão cair no meio, essa entrada é a única pista de que algo estava em curso e onde. Ao concluir, apagar a entrada (devolver a seção a "nenhuma tarefa em andamento"). |
 | Antes de escrever `Cenário`/step novo | `[R-WIP]`: `grep -n "@wip\|@skip"` nos `.feature` da própria sessão — tag esquecida de um teste já homologado não pode ficar pra trás quando se começa outro. `[R-SEL]`: seletor validado por inspeção ao vivo (dump da árvore UIA), nunca copiado de memória/suposição. `[R-NOME]`: numeração `<grupo>.<índice>` calculada contra o arquivo real (Grep), não assumida de cabeça. |
 | Antes de escrever step/Page Object que preencha campos, clique ou espere uma tela `[R-VEL]` | **Padrão adotado (2026-10-28, medido; detalhe e números em §4)**: driver `windows`. **Nunca XPath em espera/loop** (6 a 20 s por busca; `waitForDisplayed` repete a busca). Foco do campo por clique do SO no retângulo (`clicarFisico`, reativa a janela a cada clique) + digitação por `windows: keys` (`tests/support/teclado.js`, ~5 ms); botão com `Name` por `findElement('name')`; esperar janela por título via Win32 (`aguardarJanelaComTitulo`) **mais uma pausa de assentamento** (o título aparece antes de a tela estar pronta e o 1º texto se perde); avisos condicionais em cadeia (`responderAvisosEmCadeia`); leitura com UMA busca. NovaWindows foi testado e **descartado** (empate de tempo, incompatível). Resultado: 2.1 de ~3m46 para ~1m40; 2.2 de ~4m18 para ~1m55. |
-| Antes de rodar qualquer script de exploração ou a suíte (`node scripts/*.mjs`, `npm test`) | `[R-PROC]`: nenhum `PS01.exe`/`node` (Appium server) residual de um turno anterior — conferir com `tasklist` antes de começar. |
+| Antes de rodar qualquer script de exploração ou a suíte (`node scripts/*.mjs`, `npm test`) | `[R-PROC]`: nenhum `app.exe`/`node` (Appium server) residual de um turno anterior — conferir com `tasklist` antes de começar. |
 | Antes de rodar a suíte completa (`npm test`, todas as features) | `[R-SUITE]` (operador, 2026-11-06): **só com autorização expressa do operador** para aquela execução. Enquanto uma suíte está em construção, rodar apenas a suíte específica e os testes relacionados ao que mudou (ex.: a feature de código compartilhado alterado). Plano ou checklist que preveja "suíte inteira" não vale como autorização: perguntar antes. |
 | Terminou de escrever/alterar um `Cenário` | `[R-RUN-ISO]`: rodar **só esse** `Cenário` (`--cucumberOpts.name="<trecho>"`), **exatamente 2x** — nunca o arquivo inteiro nessa etapa, nunca só 1x nem mais que 2x. Só depois de estável isolado, rodar o arquivo/suíte ao redor. |
 | Rodar lote longo e não supervisionado (crawl de menu, catálogo de telas) | `[R-RESIL]`: a sessão WinAppDriver pode cair sem aviso (`ECONNRESET`/`ECONNREFUSED`) — nunca um loop sem detecção de "N erros consecutivos = sessão morta"; salvar progresso de forma incremental (append, nunca sobrescrever) pra sobreviver a um restart no meio. |
@@ -199,7 +199,7 @@ tag de um teste já homologado não pode ficar esquecida pra trás.
 
 Toda resposta que toca testes cita: quais specs/testes foram tocados (arquivo
 + `#<grupo>.<índice>`), isolamento ativo de terceiros (`@wip`/`@skip`
-pendente de remoção), confirmação de que nenhum processo `PS01.exe`/`node`
+pendente de remoção), confirmação de que nenhum processo `app.exe`/`node`
 ficou residual (`[R-PROC]`), e orientação de validação manual quando
 aplicável.
 
@@ -210,7 +210,7 @@ aplicável.
 ### 11.1 `inicia-contexto-projeto`
 1. Sessão única (`[R-NOMULTI]`, §0.2): **não** registrar rótulo de aba nem tocar em `.claude/sessions.json`/locks, mesmo que a skill genérica descreva isso.
 2. Além do quente dos 3 arquivos, ler `PROJECT_CONTEXT.md` §10.0 e §12.0 (índices, marcados `[QUENTE]`).
-3. Medir o estado real: `git status --short`; `grep -n "@wip\|@skip"` em `tests/features/*.feature`; `tasklist` filtrando `PS01.exe`/`node` residual (`[R-PROC]`).
+3. Medir o estado real: `git status --short`; `grep -n "@wip\|@skip"` em `tests/features/*.feature`; `tasklist` filtrando `app.exe`/`node` residual (`[R-PROC]`).
 4. Conferir `ROADMAP.md` §4.1 (checkpoint): se houver tarefa registrada, a sessão anterior pode ter caído no meio — citar no relatório.
 5. No relatório: contagem de `Cenário`s (`PROJECT_CONTEXT.md` §12.0), `@wip`/`@skip` medidos, árvore suja, P0/P1 só pelos títulos da tabela `ROADMAP.md` §2.
 
@@ -220,7 +220,7 @@ aplicável.
 - Homologação/validação → `HISTORICO.md` §1 (1 linha). Entrega → `HISTORICO.md` §2 (≤ 3 linhas).
 - Sem registro de sessão nem locks (`[R-NOMULTI]`): no lugar da linha por sessão, atualizar `ROADMAP.md` §4.2 ("Trabalho feito e ainda não commitado") e apagar o checkpoint §4.1 ao concluir (`[R-CKPT]`).
 - Resíduos específicos: scripts ad hoc `scripts/_tmp-*` (removidos após confirmar o achado), dumps/screenshots soltos fora de `tests/fixtures/`.
-- Antes de encerrar: `tasklist` sem `PS01.exe`/`node` residual (`[R-PROC]`); `npm run docs:lint`.
+- Antes de encerrar: `tasklist` sem `app.exe`/`node` residual (`[R-PROC]`); `npm run docs:lint`.
 
 ### 11.3 `pre-commit`
 - Flags de ambiente obrigatórias no commit: no `env.json` (versionado), `credentials.*`, `banco` e chaves de API só com placeholders vazios — credenciais reais ficam em `env.local.json` (gitignorado); nunca versionar nem editar `env.local.json`. A massa `testData.*` (códigos de produto, fornecedor, cliente, receita) vai **com valor** no `env.json` (operador, 2026-11-06).
@@ -228,7 +228,7 @@ aplicável.
 - Mensagem: Conventional Commits, português do Brasil (`[R-COMMIT]`/`[R-COMENT]`), **sem** atribuição ao agente (sem `Co-Authored-By`); aspas simples dentro da mensagem.
 - Título e corpo do PR = campos do merge: o repositório está configurado (2026-10-29, `merge_commit_title=PR_TITLE` e `merge_commit_message=PR_BODY`) para o diálogo de merge vir com **Commit message** = título do PR e **Extended description** = corpo do PR. Por isso o título do PR é o título convencional do commit e o **corpo do PR é só o resumo para o merge**: 3 a 6 tópicos do que entra, em lista, sem cabeçalho e sem seção de detalhamento (o detalhamento fica na mensagem do commit). Passar o corpo por `--body-file`.
 - Resposta final da skill: reapresentar, em blocos de código, o título do PR, o corpo do PR (= resumo) e a mensagem de commit, para conferência. Em PR já aberto que recebe commit novo, atualizar o corpo com `gh pr edit <nº> --body-file`, cobrindo todos os commits.
-- Checagens bloqueantes: `npm run docs:lint` verde; `grep -n "@wip\|@skip"` nos `.feature` (isolamento pendente de remoção impede o commit — `[R-WIP]`); `tasklist` sem `PS01.exe`/`node` residual.
+- Checagens bloqueantes: `npm run docs:lint` verde; `grep -n "@wip\|@skip"` nos `.feature` (isolamento pendente de remoção impede o commit — `[R-WIP]`); `tasklist` sem `app.exe`/`node` residual.
 - Sem tabela por sessão (`[R-NOMULTI]`): ler `ROADMAP.md` §4.2 e `git status`; depois do commit sair de verdade, zerar §4.2 (deixar o ponteiro para o `git log`).
 
 ---
@@ -378,7 +378,7 @@ estática de verdade quando aparecer com frequência.
   418. Sempre clicar no campo antes de digitar; confirmar por captura.
 - **Entrada física do SO exige PS01 em primeiro plano** (2026-10-28): quando o Claude Code
   abre uma pergunta, o terminal dele toma o foco e o clique/`SendKeys` cai nele. O helper
-  de exploração deve ativar o `PS01.exe` e **abortar** se ele não ficar em primeiro plano.
+  de exploração deve ativar o `app.exe` e **abortar** se ele não ficar em primeiro plano.
   Sessão bloqueada (`LogonUI.exe` no console) faz a captura falhar com "The handle is
   invalid" e impede qualquer entrada: pedir ao operador para destravar.
 - **Campos Delphi com busca e máscara na entrada física** (2026-10-28): em campo-busca (Nome da 046) o 1º
@@ -445,7 +445,7 @@ estática de verdade quando aparecer com frequência.
 - **Suíte `0.os` e exe de debug (2026-11-06, OS 364644)**:
   - Massa de OS é volátil (atendimentos, mensagens): escolher no banco a cada rodada, num `Before` com a tag da OS,
     e achar a linha na tela por um sinal visual (pixel), nunca por posição fixa ou código no `.feature`.
-  - Uma rodada passou com falso verde: a janela de Login de OUTRO `PS01.exe` (provável instância do `appium:app`
+  - Uma rodada passou com falso verde: a janela de Login de OUTRO `app.exe` (provável instância do `appium:app`
     que sobreviveu ao `kill` por ainda estar subindo; o exe de debug sobe devagar) surgiu na frente e o `Fechar`
     do detalhe não pegou. Passo que fecha janela confere pelo título e repete (`OmniPage.fecharDetalhe`); conferir
     as capturas de checkpoint antes de aceitar a 1ª rodada verde de um cenário novo.
@@ -585,7 +585,7 @@ antigos nunca são removidos automaticamente.
   incluso) e imprime o DOM final no stdout, dá pra conferir com `grep`/script
   Node se alguma string em inglês sobrou. Mata os processos `msedge.exe`
   levantados ao terminar (`taskkill /IM msedge.exe /F`) — não é o
-  `[R-PROC]` de `PS01.exe`/Appium, mas é processo próprio que não deve
+  `[R-PROC]` de `app.exe`/Appium, mas é processo próprio que não deve
   sobrar entre turnos.
 - `npm run report:html` — `scripts/generateHtmlReport.mjs`: varre
   recursivamente `tests/reports/**/cucumber-report.json` (a lib
@@ -645,7 +645,7 @@ antigos nunca são removidos automaticamente.
 **Ordem de consulta ao diagnosticar: ver `[R-EVID]` (§1)** — este tópico só
 descreve o que é gravado, não repete a ordem de leitura.
 
-Paridade com `cypress-pharmacie-web` (`cypress/support/errorHandler.js` +
+Paridade com `cypress-enterprise-suite` (`cypress/support/errorHandler.js` +
 artefatos do `afterEach`, ver seu `AGENTS.md` §5 `[R-ERR]`), adaptada ao
 vocabulário de UI Automation. `tests/support/failureArtifacts.js`,
 disparado pelo `afterScenario` de `wdio.conf.js` quando `result.error`
@@ -680,15 +680,15 @@ convenção de nomes, não precisa de um `before` dedicado a apagar nada.
 
 **Decisão (2026-10-08, pedido do usuário)**: `.github/workflows/tests.yml`
 roda em runner **self-hosted** nesta VM, nunca em `windows-latest`
-hospedado pela GitHub. Motivo: `PS01.exe` precisa de conectividade de rede
+hospedado pela GitHub. Motivo: `app.exe` precisa de conectividade de rede
 real com o Firebird 2.5 — um runner hospedado não alcança esse banco (está
 fora do escopo de qualquer VPN/túnel que a GitHub ofereça por padrão), além
 de exigir reinstalar o app do zero a cada execução (sem instalador leve
 disponível). A VM já resolve isso: mesma rede do Firebird, app e driver já
 instalados.
 
-- **Label do runner**: `[self-hosted, Windows, sisps-vm]` — se renomear a VM
-  ou criar uma 2ª, manter a label `sisps-vm` só pra esta instância; uma nova
+- **Label do runner**: `[self-hosted, Windows, windows-runner-vm]` — se renomear a VM
+  ou criar uma 2ª, manter a label `windows-runner-vm` só pra esta instância; uma nova
   VM usa uma label própria (nunca reaproveitar a mesma label pra 2
   runners diferentes rodando sessões de desktop distintas, quebraria a
   premissa do `concurrency` abaixo).

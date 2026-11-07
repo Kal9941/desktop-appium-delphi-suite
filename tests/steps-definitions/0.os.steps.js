@@ -141,7 +141,7 @@ Then('a notificação de mensagens não lidas continua no atendimento com a regr
 })
 
 // ---- 0.2: OS 361422, item em % ignora ativos em mg/mcg (bug do produto, @bug) ----
-// A fórmula 2 da receita 261001707 (consulfarma), que o dev usou na investigação: forma 61 (informe
+// A fórmula 2 da receita 261001707 (demostore), que o dev usou na investigação: forma 61 (informe
 // por Total múltiplo), lab 2, total 1, e a essência em % incluída À MÃO (pelo vínculo dos
 // conservantes ela sai certa). Esperado: % × soma das quantidades calculadas dos ativos de massa,
 // com o item em mg (0,4245, como a fórmula 1 daquela receita). Hoje: 0,37 (a valeriana fica de fora).

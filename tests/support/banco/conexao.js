@@ -1,7 +1,7 @@
 import Firebird from 'node-firebird'
 import { loadEnv } from '../loadEnv.js'
 
-// Conexão SOMENTE LEITURA com o Firebird do sistema (consulfarma), usada pela suíte 4.calculo
+// Conexão SOMENTE LEITURA com o Firebird do sistema (demostore), usada pela suíte 4.calculo
 // para ler os insumos do cálculo e o orçamento gravado. Mesma trava do kit
 // `C:\Projetos\acesso ao banco\lib\conexao.js`: só SELECT/WITH parametrizado, sem `;`, sem
 // DML/DDL/EXECUTE, numa transação read-only que sempre termina em rollback. A credencial vem de

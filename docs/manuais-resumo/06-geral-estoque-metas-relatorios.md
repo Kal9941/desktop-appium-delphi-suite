@@ -1,6 +1,6 @@
 # Manuais — Parte geral: estoque, pagamento, metas, relatórios, ponto e entrega
 
-> Resumo de referência para escrita de cenários futuros, derivado dos PDFs em `docs/Manuais - Pharmacie/` (10 manuais).
+> Resumo de referência para escrita de cenários futuros, derivado dos PDFs em `docs/Manuais - OmniCare/` (10 manuais).
 > **Como foi feito (2026-10-28):** texto extraído dos PDFs com `pdftotext` e resumido por leitura integral, sem consultar o app.
 > **Limites:** não inclui as imagens/prints dos PDFs; as setas dos caminhos de menu se perderam na extração (aqui aparecem como `>`);
 > o manual quase nunca traz mensagens literais de erro/validação nem a lista de campos obrigatórios.
@@ -159,17 +159,17 @@ Notas gerais sobre a extração:
 
 - **Manual:** Pegar xml de notas OK (título interno: "Procedimento para pegar XML de notas", VER. 26.2, 9 páginas) - Parte geral
 - **Objetivo:** Localizar e copiar/compactar os XMLs de notas fiscais (para contabilidade), pela pasta do sistema ou por telas de documentos fiscais.
-- **Tela(s) e caminho de menu:** "Movimentos - Documentos Fiscais"; "NF-e - Tela 444"; "NFC-e - Tela 606"; "NFS-e - Tela 616". Pasta: Este computador > Disco Local (C:) > "SisPS" > "ARQ" > "_docs_fiscais" > tipo de nota (NF-e, NFS-e, NFC-e) > pasta com CNPJ da loja > "ANO-MÊS".
+- **Tela(s) e caminho de menu:** "Movimentos - Documentos Fiscais"; "NF-e - Tela 444"; "NFC-e - Tela 606"; "NFS-e - Tela 616". Pasta: Este computador > Disco Local (C:) > "AppERP" > "ARQ" > "_docs_fiscais" > tipo de nota (NF-e, NFS-e, NFC-e) > pasta com CNPJ da loja > "ANO-MÊS".
 - **Pré-requisitos:** Notas já emitidas; acesso ao Windows Explorer na máquina do servidor/sistema (1º método).
 - **Fluxo:**
-  - 1º método (Explorador de Arquivos): abrir Explorador (tecla Windows + E, ou ícone do Windows) -> "Este computador" -> "Disco Local (C:)" -> pasta "SisPS" -> "ARQ" -> "_docs_fiscais" -> tipo de nota (NF-e / NFS-e / NFC-e) -> pasta com número do CNPJ da loja -> pasta de mês no formato "ANO-MÊS" (ex.: "202604" = 2026 ano e 04 mês) -> copiar a pasta ou compactar em .zip.
+  - 1º método (Explorador de Arquivos): abrir Explorador (tecla Windows + E, ou ícone do Windows) -> "Este computador" -> "Disco Local (C:)" -> pasta "AppERP" -> "ARQ" -> "_docs_fiscais" -> tipo de nota (NF-e / NFS-e / NFC-e) -> pasta com número do CNPJ da loja -> pasta de mês no formato "ANO-MÊS" (ex.: "202604" = 2026 ano e 04 mês) -> copiar a pasta ou compactar em .zip.
   - 2º método (pelo sistema): "Movimentos - Documentos Fiscais" -> escolher o tipo (NF-e Tela 444, NFC-e Tela 606, NFS-e Tela 616) -> "Ao abrir a tela, selecione esta opção" (nome da opção só no print) -> o sistema abre automaticamente a pasta onde ficam os XMLs.
 - **Campos e regras de negócio:** Organização por ano-mês "AAAAMM"; uma pasta por tipo de nota e por CNPJ da loja; mesmos passos para os três tipos.
 - **Ações de risco:** Nenhuma citada; cuidado geral ao manipular arquivos fiscais (copiar, não mover/excluir - o manual só fala em copiar ou compactar).
 - **Candidatos a cenário de teste:**
   1. Navegar "Movimentos - Documentos Fiscais" e abrir cada tela (444, 606, 616) verificando título.
-  2. Na tela de NF-e (444), acionar a opção que abre a pasta de XMLs e verificar que o Explorador abre no caminho "...\SisPS\ARQ\_docs_fiscais\NF-e\..." (teste de verificação de artefato do SO, sujeito à opção citada).
-  3. Verificação de arquivo (fora da UI do app): existência da pasta "C:\SisPS\ARQ\_docs_fiscais\<tipo>\<CNPJ>\AAAAMM".
+  2. Na tela de NF-e (444), acionar a opção que abre a pasta de XMLs e verificar que o Explorador abre no caminho "...\AppERP\ARQ\_docs_fiscais\NF-e\..." (teste de verificação de artefato do SO, sujeito à opção citada).
+  3. Verificação de arquivo (fora da UI do app): existência da pasta "C:\Apps\ERPDesktop\ARQ\_docs_fiscais\<tipo>\<CNPJ>\AAAAMM".
   4. Borda: tipo de nota sem XMLs no mês (comportamento não informado).
 - **Lacunas:** Nome do botão/opção que abre a pasta no 2º método não é dito (só prints); não diz se a pasta "AAAAMM" usa mês de emissão ou autorização; não diz se há XMLs de cancelamento/inutilização em subpastas; "[Disco Local (C:)]" assumido; não informa como proceder em instalação em rede/outro drive.
 
@@ -177,7 +177,7 @@ Notas gerais sobre a extração:
 
 ## 6. Registo de ponto
 
-- **Manual:** Registo de ponto (título interno: "Procedimento para registro de ponto no sistema Pharmacie", REV. 00, 23 páginas, nov/2025) - Parte geral
+- **Manual:** Registo de ponto (título interno: "Procedimento para registro de ponto no sistema OmniCare", REV. 00, 23 páginas, nov/2025) - Parte geral
 - **Objetivo:** Configurar horários, justificativas, habilitar colaborador e máquina e registrar/consultar/editar ponto.
 - **Tela(s) e caminho de menu:**
   - "Cadastros - Funcionários - Folha de ponto - Horários"
